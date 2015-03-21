@@ -16,7 +16,7 @@ public class CustomMapActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_custom_map);
         gridView = (GridView) findViewById(R.id.grid_view);
 
         String[] blanks = new String[] {
