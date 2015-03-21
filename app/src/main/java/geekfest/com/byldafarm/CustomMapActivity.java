@@ -4,15 +4,62 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
 
 
 public class CustomMapActivity extends ActionBarActivity {
 
+    private GridView gridView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_map);
+        setContentView(R.layout.activity_main);
+        gridView = (GridView) findViewById(R.id.grid_view);
 
+        String[] blanks = new String[] {
+                "1", "2 ", " 3", " 4",
+                " 8", " 7", " 6", " 5",
+                " 9", " 10", " 11", " 12",
+                " 13", " 14", " 15", " 16",
+                "1", "2 ", " 3", " 4",
+                " 8", " 7", " 6", " 5",
+                " 9", " 10", " 11", " 12",
+                " 13", " 14", " 15", " 16",
+                "1", "2 ", " 3", " 4",
+                " 8", " 7", " 6", " 5",
+                " 9", " 10", " 11", " 12",
+                " 13", " 14", " 15", " 16",
+                "1", "2 ", " 3", " 4",
+                " 8", " 7", " 6", " 5",
+                " 9", " 10", " 11", " 12",
+                " 13", " 14", " 15", " 16"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, blanks);
+
+        gridView.setAdapter(adapter);
+        gridView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    gridView.requestFocusFromTouch();
+                    //     gridView.getSelectedView().setBackgroundColor(Color.parseColor("#000000"));
+                    gridView.setSelection(gridView.pointToPosition((int) event.getX(), (int) event.getY()));
+
+                    return true;
+                }
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    gridView.clearFocus();
+
+                    return true;
+                }
+
+                return false;
+            }
+        });
     }
 
 
