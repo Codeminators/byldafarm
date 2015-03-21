@@ -44,8 +44,9 @@ public class CustomMapActivity extends ActionBarActivity {
             crops.add(WINTER);
         } else if(month == 2){
             crops.add(RABI);
-            crops.add(WINTER);
-            crops.add(SUMMER);
+            //crops.add(WINTER);
+            //crops.add(SUMMER);
+            //crops.add(KHARIF);
         } else if(month == 3){
             crops.add(SUMMER);
         } else if(month == 4) {
