@@ -1,7 +1,8 @@
 package geekfest.com.byldafarm;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -48,7 +49,6 @@ public class CustomMapActivity extends ActionBarActivity {
                     gridView.requestFocusFromTouch();
                     //     gridView.getSelectedView().setBackgroundColor(Color.parseColor("#000000"));
                     gridView.setSelection(gridView.pointToPosition((int) event.getX(), (int) event.getY()));
-
                     return true;
                 }
                 if (event.getAction() == MotionEvent.ACTION_UP) {
