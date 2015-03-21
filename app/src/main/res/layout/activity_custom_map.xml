@@ -3,19 +3,30 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:id="@+id/relativeLayout"
+    >
 
     <GridView
         android:id="@+id/grid_view"
-        android:numColumns="8"
+        android:numColumns="4"
 
-        android:layout_width = "fill_parent"
-        android:layout_height = "fill_parent"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
         android:listSelector = "@drawable/farm_selector"
-
+        android:layout_margin="10dp"
 
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
     </GridView>
+
+    <Button
+        android:layout_below="@+id/grid_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/submit"
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>
