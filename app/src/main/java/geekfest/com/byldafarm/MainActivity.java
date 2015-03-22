@@ -36,7 +36,6 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
