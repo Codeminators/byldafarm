@@ -33,7 +33,6 @@ public class AlgorithmBadCase {
             }
         }
 
-
         int n = 100;
         int totalCost = 0, totalProfit = 0;
 

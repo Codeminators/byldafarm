@@ -6,6 +6,14 @@
     android:layout_marginTop="100dp"
     tools:context=".MainFragment">
 
+    <ProgressBar
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/farm_budget"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        ></ProgressBar>
         <EditText
             android:id="@+id/farm_area"
             android:layout_width="match_parent"
@@ -53,6 +61,17 @@
             android:text="Submit"
             android:layout_below="@+id/farm_budget"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="97dp" />
+            android:layout_marginTop="60dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bbuton_primary_rounded"
+        android:layout_margin="20dp"
+        android:text="Build a Farm"
+        android:id="@+id/build_a_farm"
+        />
 
 </RelativeLayout>
