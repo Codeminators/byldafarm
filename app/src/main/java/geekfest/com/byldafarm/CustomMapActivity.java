@@ -1,17 +1,22 @@
 package geekfest.com.byldafarm;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -33,6 +38,7 @@ public class CustomMapActivity extends ActionBarActivity {
     private static final String RABI = "Rabi";
     private static final String AUTUMN = "Autumn";
     private static final String SUMMER = "Summer";
+    private Adapter gridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,7 @@ public class CustomMapActivity extends ActionBarActivity {
 
         submitButton = (Button) findViewById(R.id.submit);
         radioGroup = new RadioGroup(this);
+        radioGroup.setOrientation(LinearLayout.HORIZONTAL);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         final ArrayList<String> cropList = new ArrayList<>();
         for(int i = 0; i < 3; i++){
@@ -50,11 +57,9 @@ public class CustomMapActivity extends ActionBarActivity {
 
         for(int i = 0; i < cropList.size(); i++){
             RadioButton button = new RadioButton(this);
-            button.setText("Button" + i);
             button.setId(i);
-            RelativeLayout.LayoutParams layoutParams1 = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.WRAP_CONTENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT);
+            button.setButtonDrawable(R.drawable.ic_launcher);
+            RelativeLayout.LayoutParams layoutParams1= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             if(i > 0) {
                 layoutParams1.addRule(RelativeLayout.RIGHT_OF, i - 1);
             }
@@ -107,15 +112,8 @@ public class CustomMapActivity extends ActionBarActivity {
         }
 
 
-        String[] blanks = new String[] {
-                "1", "2 ", " 3", " 4",
-                " 8", " 7", " 6", " 5",
-                " 9", " 10", " 11", " 12",
-                " 13", " 14", " 15", " 16",
-                };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, blanks);
-
-        gridView.setAdapter(adapter);
+        gridAdapter = new Adapter(getApplicationContext());
+        gridView.setAdapter(gridAdapter);
         gridView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -184,6 +182,41 @@ public class CustomMapActivity extends ActionBarActivity {
             }
 
         });
+
+
+    }
+
+    public class Adapter extends BaseAdapter{
+
+        Context c;
+        public Adapter(Context context){
+            this.c = context;
+        }
+
+        @Override
+        public int getCount() {
+            return 25;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater)c.getSystemService(c.LAYOUT_INFLATER_SERVICE);
+            View v = convertView;
+            if(convertView == null){
+                v = layoutInflater.inflate(R.layout.grid_item, null);
+            }
+            return v;
+        }
     }
 
     @Override
