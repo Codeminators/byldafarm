@@ -1,6 +1,7 @@
 package geekfest.com.byldafarm;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -38,12 +39,19 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        String phone = "1800-180-1551";
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.byld_a_custom_farm) {
             Intent intent = new Intent(getApplicationContext(), CustomMapActivity.class);
             startActivity(intent);
             return true;
+        }
+        if (id == R.id.kisan_helpline) {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + phone));
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
