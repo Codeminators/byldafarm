@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -33,11 +32,7 @@ public class CustomMapActivity extends ActionBarActivity {
     private RadioGroup radioGroup;
 
     private Calendar calendar;
-    private static final String WINTER = "Winter";
-    private static final String KHARIF = "Kharif";
-    private static final String RABI = "Rabi";
-    private static final String AUTUMN = "Autumn";
-    private static final String SUMMER = "Summer";
+
     private Adapter gridAdapter;
 
     @Override
@@ -68,48 +63,9 @@ public class CustomMapActivity extends ActionBarActivity {
         }
 
         relativeLayout.addView(radioGroup);
-
-        calendar = Calendar.getInstance();
-
-        int month = calendar.MONTH;
-        Log.d("Raghav", ""+month);
-
-        ArrayList<String> crops = new ArrayList<>();
+        ArrayList<String> cropsGrown = Utils.getSeason();
 
 
-        if(month == 0) {
-            crops.add(RABI);
-            crops.add(WINTER);
-        } else if(month == 1){
-            crops.add(RABI);
-            crops.add(WINTER);
-        } else if(month == 2){
-            crops.add(RABI);
-            //crops.add(WINTER);
-            //crops.add(SUMMER);
-            //crops.add(KHARIF);
-        } else if(month == 3){
-            crops.add(SUMMER);
-        } else if(month == 4) {
-            crops.add(SUMMER);
-        } else if (month == 5) {
-            crops.add(SUMMER);
-        } else if (month == 6) {
-            crops.add(KHARIF);
-        } else if(month == 7){
-            crops.add(KHARIF);
-        } else if (month == 8) {
-            crops.add(KHARIF);
-        } else if (month == 9) {
-            crops.add(KHARIF);
-            crops.add(AUTUMN);
-        } else if (month == 10) {
-            crops.add(RABI);
-            crops.add(AUTUMN);
-        } else {
-            crops.add(WINTER);
-            crops.add(RABI);
-        }
 
 
         gridAdapter = new Adapter(getApplicationContext());
