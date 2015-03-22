@@ -1,6 +1,7 @@
 package geekfest.com.byldafarm;
 
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -166,6 +167,7 @@ public class CustomMapActivity extends ActionBarActivity {
 
                 if(sum == gridView.getChildCount()){
                     Log.d("Crop Value", crop1 + " " + crop2 + " " + crop3);
+                    getSupportFragmentManager().beginTransaction().add(R.id.container, new CompareResultFragment()).commit();
                 }
             }
 
