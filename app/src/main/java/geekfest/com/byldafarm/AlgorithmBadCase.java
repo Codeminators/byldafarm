@@ -1,5 +1,7 @@
 package geekfest.com.byldafarm;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -7,13 +9,15 @@ import java.util.Scanner;
  */
 public class AlgorithmBadCase {
 
+    public static FarmCalculationResult efficientFarm(int budget, int farmArea, int crop1CostPice, int crop1SellingPrice,
+                                                 int crop2CostPrice, int crop2SellingPrice, )
+
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         int bugdet = s.nextInt();
         int noOfCrops = s.nextInt();
         int area = s.nextInt();
         int crop1sellingprice, crop2sellingprice, crop3sellingprice, crop1costprice, crop2costprice, crop3costprice;
-
         crop1costprice = s.nextInt();
         crop1sellingprice = s.nextInt();
 
