@@ -38,11 +38,7 @@ public class MainActivity extends ActionBarActivity {
         String phone = "1800-180-1551";
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.byld_a_custom_farm) {
-            Intent intent = new Intent(getApplicationContext(), CustomMapActivity.class);
-            startActivity(intent);
-            return true;
-        }
+
         if (id == R.id.kisan_helpline) {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:" + phone));

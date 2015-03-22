@@ -2,6 +2,7 @@ package geekfest.com.byldafarm;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,6 +35,7 @@ public class CustomMapActivity extends ActionBarActivity {
 
     private Button submitButton;
     private RadioGroup radioGroup;
+    private TextView areaText;
 
     private Calendar calendar;
 
@@ -42,8 +45,12 @@ public class CustomMapActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_map);
+        Intent intent = getIntent();
+        String area = intent.getStringExtra("Area");
+        Log.d("Area", area);
         gridView = (GridView) findViewById(R.id.grid_view);
-
+        areaText = (TextView) findViewById(R.id.areaText);
+        areaText.setText("Scale : 1 unit = " + Float.parseFloat(area)/50.0);
         submitButton = (Button) findViewById(R.id.submit);
         radioGroup = new RadioGroup(this);
         radioGroup.setOrientation(LinearLayout.HORIZONTAL);

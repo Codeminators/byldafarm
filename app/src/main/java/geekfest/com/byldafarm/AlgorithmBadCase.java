@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class AlgorithmBadCase {
 
-    public static FarmCalculationResult efficientFarm(int budget, int farmArea, int crop1CostPice, int crop1SellingPrice,
-                                                 int crop2CostPrice, int crop2SellingPrice, )
+//    public static FarmCalculationResult efficientFarm(int budget, int farmArea, int crop1CostPice, int crop1SellingPrice,
+//                                                 int crop2CostPrice, int crop2SellingPrice);
 
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);

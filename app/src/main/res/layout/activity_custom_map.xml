@@ -18,20 +18,31 @@
         android:horizontalSpacing="5dp"
         android:gravity="center"
         android:columnWidth="50dp"
-        android:padding="10dp"
         android:minHeight="15dp"
 
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
     </GridView>
-
-    <Button
-        android:layout_below="@+id/grid_view"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/grid_view"
+        android:id="@+id/areaText"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:layout_below="@+id/areaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Submit"
         android:id="@+id/submit"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/bbuton_primary_rounded"
+
         />
 </RelativeLayout>
