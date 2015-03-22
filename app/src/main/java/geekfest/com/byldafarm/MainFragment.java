@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.ArrayList;
 
 /**
@@ -18,7 +21,8 @@ public class MainFragment extends Fragment {
 
     private Button submitButton;
     private EditText farmAreaEdTxt, farmLocationEdTxt, farmBudgetEdTxt;
-    String stringToPassInSQL = "";
+    String stringToPassInSQL = "" ,location = "";
+    float maxProfit;
     public MainFragment() {
     }
     @Override
@@ -32,24 +36,65 @@ public class MainFragment extends Fragment {
 
         ArrayList<String> cropsGrown = Utils.getSeason();
 
-        final String location = farmLocationEdTxt.getText().toString();
+
         for(int i = 0; i < cropsGrown.size(); i++){
             if( i == cropsGrown.size() - 1){
-                stringToPassInSQL = stringToPassInSQL + "\'"+cropsGrown.get(i)+"\'";
+                stringToPassInSQL = stringToPassInSQL + "\'"+cropsGrown.get(i)+"\');";
             } else
-            stringToPassInSQL = stringToPassInSQL + "\'"+cropsGrown.get(i)+"\' OR Season=";
+            stringToPassInSQL = stringToPassInSQL + "\'"+cropsGrown.get(i)+"\', "; //"\' OR Season LIKE ";
         }
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                final String sqlInput = "SELECT * FROM `TABLE 1` WHERE District LIKE " + location + "AND Season LIKE "+ stringToPassInSQL;
+                final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
+                final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
+                location = farmLocationEdTxt.getText().toString();
+                final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN ("+ stringToPassInSQL;
 
                 Log.d("Raghav", sqlInput);
                 new QueryTask(){
                     @Override
-                    protected void onPostExecute(String s) {
-                        Log.d("Raghav", s);
+                    protected void onPostExecute(String stringResponse) {
+                        try {
+
+
+                            JSONArray jsonArray = new JSONArray(stringResponse);
+                            ArrayList<Crop> crop = new ArrayList<Crop>();
+                            int i = 0;
+                            while(i < jsonArray.length() && i < 3) {
+                                crop.add(i, new Crop());
+                                crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
+                                crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
+                                crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
+                                crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
+                                crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
+                                crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                i++;
+                            }
+                            FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
+                            for( i = 0; i < crop.size(); i++){
+                                if(i == 0){
+                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
+
+                                } else if (i == 1) {
+                                   crop.get(i).maxArea = farmCalResult.maxAreaCrop2;
+
+                                } else if (i ==2) {
+                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop3;
+
+                                }
+                            }
+                            maxProfit = farmCalResult.totalProfit;
+                            Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+
+                        Log.d("Raghav", stringResponse);
                     }
                 }.execute(sqlInput);
 
