@@ -22,10 +22,13 @@
             android:digits="0123456789"
             android:imeOptions="actionNext"
             android:singleLine="true"
-            android:hint="Farm Area"
+            android:hint="Farm Area (in Hectares)"
             android:textAlignment="center"
-            android:layout_margin="20dp"
-            android:layout_marginTop="60dp"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/farm_budget"
+            android:layout_alignStart="@+id/farm_budget"
+            android:layout_alignRight="@+id/farm_budget"
+            android:layout_alignEnd="@+id/farm_budget" />
 
         <EditText
             android:id="@+id/farm_location"

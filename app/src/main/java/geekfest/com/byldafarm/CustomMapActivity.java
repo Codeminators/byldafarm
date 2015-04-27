@@ -1,11 +1,9 @@
 package geekfest.com.byldafarm;
 
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -19,7 +17,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -51,15 +48,15 @@ public class CustomMapActivity extends ActionBarActivity {
         Log.d("Area", area);
         gridView = (GridView) findViewById(R.id.grid_view);
         areaText = (TextView) findViewById(R.id.areaText);
-        areaText.setText("Scale : 1 unit = " + Float.parseFloat(area)/50.0);
+        areaText.setText("Scale : 1 unit = " + Float.parseFloat(area)/25.0 + " Hectare");
         submitButton = (Button) findViewById(R.id.submit);
         radioGroup = new RadioGroup(this);
         radioGroup.setOrientation(LinearLayout.HORIZONTAL);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         final ArrayList<String> cropList = new ArrayList<>();
-        for(int i = 0; i < 3; i++){
-            cropList.add("Crop " + i);
-        }
+        cropList.add(0,"Bajra");
+        cropList.add(0,"Maize");
+        cropList.add(0,"SugerCane");
 
         for(int i = 0; i < cropList.size(); i++){
             final RadioButton button = new RadioButton(this);
@@ -167,7 +164,11 @@ public class CustomMapActivity extends ActionBarActivity {
 
                 if(sum == gridView.getChildCount()){
                     Log.d("Crop Value", crop1 + " " + crop2 + " " + crop3);
-                    getSupportFragmentManager().beginTransaction().add(R.id.container, new CompareResultFragment()).commit();
+                    Intent intent = new Intent(getApplicationContext(), CustomProfitActivity.class);
+                    intent.putExtra("crop1", crop1);
+                    intent.putExtra("crop2", crop2);
+                    intent.putExtra("crop3", crop3);
+                    startActivity(intent);
                 }
             }
 

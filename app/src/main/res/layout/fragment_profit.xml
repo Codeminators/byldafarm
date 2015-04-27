@@ -1,5 +1,51 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent" tools:context="geekfest.com.byldafarm.ProfitFragment">
 
-</FrameLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of fertilizers = " android:id="@+id/aairrigation1" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds1" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour1" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer1" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of fertilizers = " android:id="@+id/aairrigation2" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds2" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour2" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer2" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of fertilizers = " android:id="@+id/aairrigation3" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds3" android:layout_gravity="center_horizontal" android:padding="10dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour3" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer3" android:padding="10dp" android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+        </ScrollView>
+
+</LinearLayout>

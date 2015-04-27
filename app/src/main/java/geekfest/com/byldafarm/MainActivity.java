@@ -21,6 +21,12 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new MainFragment())
+                .commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
