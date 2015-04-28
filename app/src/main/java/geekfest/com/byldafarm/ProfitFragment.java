@@ -26,13 +26,17 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
 
     private PieChart mChart;
     private ArrayList<Crop> arrayList;
+    FarmCalculationResult mainResult;
+    protected ArrayList<String> mParties = new ArrayList<>();
 
     public ProfitFragment(){
 
     }
 
-    public ProfitFragment(ArrayList<Crop> crop) {
+    public ProfitFragment(ArrayList<Crop> crop, FarmCalculationResult farmCalculationResult) {
         arrayList = crop;
+        mainResult = farmCalculationResult;
+
     }
 
 
@@ -42,10 +46,12 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_profit, container, false);
 
+
         mChart = (PieChart) rootView.findViewById(R.id.chart);
         mChart.setUsePercentValues(true);
         mChart.setHoleColorTransparent(true);
-        mChart.setCenterText("Profit \n" + "Rs. 78296.6 ");
+
+        mChart.setCenterText("Profit \n" + mainResult.totalProfit);
         setData(3, 100);
         mChart.setCenterTextSizePixels(50);
         TextView seed1 = (TextView) rootView.findViewById(R.id.aacostofseeds1);
@@ -76,14 +82,16 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
     }
     private void setData(int count, float range) {
         float mult = range;
-
+        for(int i = 0; i < arrayList.size(); i++){
+            mParties.add(arrayList.get(i).cropName);
+        }
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();
-        yVals1.add(new Entry((float) 72.0, 0));
-        yVals1.add(new Entry((float) 19.4, 1));
-        yVals1.add(new Entry((float) 8.6, 2));
+        yVals1.add(new Entry((float) mainResult.maxAreaCrop1, 0));
+        yVals1.add(new Entry((float) mainResult.maxAreaCrop2, 1));
+        yVals1.add(new Entry((float) mainResult.maxAreaCrop3, 2));
         ArrayList<String> xVals = new ArrayList<String>();
         for (int i = 0; i < count + 1; i++)
-            xVals.add(mParties[i % mParties.length]);
+            xVals.add(mParties.get(i % mParties.size()));
         PieDataSet dataSet = new PieDataSet(yVals1, "");
         dataSet.setSliceSpace(3f);
 // add a lot of colors
@@ -109,6 +117,6 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         mChart.highlightValues(null);
         mChart.invalidate();
     }
-    protected String[] mParties = new String[] {
-            "Bajra","Maize","Sugarcane"};
+
+
 }

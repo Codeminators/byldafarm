@@ -11,10 +11,12 @@ public class random {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
 
-        int crop1CostPrice = 4086;
+        int crop1CostPrice = 5169;
         int crop1SellingPrice = 8945;
-        int crop2CostPrice = 5714;
-        int crop2SellingPrice = 11565;
+        int crop2CostPrice = 4384;
+        int crop2SellingPrice = 5632;
+        int crop3CostPrice = 5230;
+        int crop3SellingPrice = 9340;
         double max = 0.0;
 
 
@@ -31,24 +33,28 @@ public class random {
 //        }
 
         for(int i = 0; i <= 100; i++){
-            for(int j = 0; j <= 100; j++) {
-                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (100 - i) * area / 100;
+
+            for(int j = 0; j + i <= 100; j++) {
+
+                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (j) * area / 100 + crop3CostPrice * (100-i-j) * area / 100;
+//                System.out.println(i + " " + j + " " + (100 -i -j));
+
                 if (totalCostPrice <= budget) {
 
-                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (100 - i) * area / 100;
+                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (j) * area / 100 + crop3SellingPrice * (100-i-j) * area / 100;
 
                     if (totalSellingPrice - totalCostPrice > max) {
                         max = totalSellingPrice - totalCostPrice;
                         farmCalculationResult.maxAreaCrop1 = i * area / 100;
-                        farmCalculationResult.maxAreaCrop2 = (100 - i) * area / 100;
+                        farmCalculationResult.maxAreaCrop2 = (j) * area / 100;
+                        farmCalculationResult.maxAreaCrop3 = (100 - i - j) * area / 100;
                         farmCalculationResult.totalCost = totalCostPrice;
                         farmCalculationResult.totalProfit = max;
-                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.totalCost);
-
+                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " +farmCalculationResult.totalCost);
                     }
                 }
+                //175421.0 18.25 0.0 119889.0
             }
-
         }
         return farmCalculationResult;
     }

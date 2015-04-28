@@ -88,7 +88,7 @@ public class MainFragment extends Fragment {
                                 crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
                                 i++;
                             }
-                            FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
+                            FarmCalculationResult farmCalResult = AlgorithmTwoCrops.efficientFarm(farmBudget, farmArea, crop);
 //                            for( i = 0; i < crop.size(); i++){
 //                                if(i == 0){
 //                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
@@ -104,8 +104,9 @@ public class MainFragment extends Fragment {
 //                            maxProfit = farmCalResult.totalProfit;
                             Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
                             progressBar.setVisibility(View.GONE);
+
                             getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.container, new ProfitFragment(crop))
+                                    .replace(R.id.container, new ProfitFragment(crop, farmCalResult))
                                     .commit();
 
                         } catch (JSONException e) {
