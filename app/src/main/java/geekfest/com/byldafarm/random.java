@@ -11,12 +11,12 @@ public class random {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
 
-        int crop1CostPrice = 5169;
-        int crop1SellingPrice = 8945;
-        int crop2CostPrice = 4384;
-        int crop2SellingPrice = 5632;
-        int crop3CostPrice = 5230;
-        int crop3SellingPrice = 9340;
+        int crop1CostPrice = 5714;
+        int crop1SellingPrice = 9565;
+        int crop2CostPrice = 9931;
+        int crop2SellingPrice = 12984;
+        int crop3CostPrice = 5730;
+        int crop3SellingPrice = 7230;
         double max = 0.0;
 
 
@@ -70,7 +70,7 @@ public class random {
 
 
 
-        FarmCalculationResult farmCalculationResult = efficientFarm(120000, 25);
+        FarmCalculationResult farmCalculationResult = efficientFarm(1200000, 200);
 
         System.out.println(farmCalculationResult.totalProfit+ " " + farmCalculationResult.maxAreaCrop1+ " " + farmCalculationResult.maxAreaCrop2+ " " + farmCalculationResult.totalCost);
 //        System.out.println(maxProf + " " + (maxcrop1Area/100)*area + " " + (maxcrop2Area/100)*area + " " + (maxcrop3Area/100)*area);
