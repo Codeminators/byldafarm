@@ -56,39 +56,41 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
-                final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
-                location = farmLocationEdTxt.getText().toString();
-                final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN ("+ stringToPassInSQL;
+                if(validate()){
 
-                Log.d("Raghav", sqlInput);
-                new QueryTask(){
+                    final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
+                    final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
+                    location = farmLocationEdTxt.getText().toString();
+                    final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN ("+ stringToPassInSQL;
 
-                    @Override
-                    protected void onPreExecute() {
-                        progressBar.setVisibility(View.VISIBLE);
-                    }
+                    Log.d("Raghav", sqlInput);
+                    new QueryTask(){
+
+                        @Override
+                        protected void onPreExecute() {
+                            progressBar.setVisibility(View.VISIBLE);
+                        }
 
 
-                    @Override
-                    protected void onPostExecute(String stringResponse) {
-                        try {
+                        @Override
+                        protected void onPostExecute(String stringResponse) {
+                            try {
 
-                            JSONArray jsonArray = new JSONArray(stringResponse);
-                            ArrayList<Crop> crop = new ArrayList<Crop>();
-                            int i = 0;
-                            while(i < jsonArray.length() && i < 3) {
-                                crop.add(i, new Crop());
-                                crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
-                                crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
-                                crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
-                                crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
-                                crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
-                                crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
-                                crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
-                                i++;
-                            }
-                            FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
+                                JSONArray jsonArray = new JSONArray(stringResponse);
+                                ArrayList<Crop> crop = new ArrayList<Crop>();
+                                int i = 0;
+                                while(i < jsonArray.length() && i < 3) {
+                                    crop.add(i, new Crop());
+                                    crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
+                                    crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
+                                    crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
+                                    crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
+                                    crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                    crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
+                                    crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                    i++;
+                                }
+                                FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
 //                            for( i = 0; i < crop.size(); i++){
 //                                if(i == 0){
 //                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
@@ -102,35 +104,54 @@ public class MainFragment extends Fragment {
 //                                }
 //                            }
 //                            maxProfit = farmCalResult.totalProfit;
-                            Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
-                            progressBar.setVisibility(View.GONE);
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.container, new ProfitFragment(crop))
-                                    .addToBackStack("profit+fragment")
-                                    .commit();
+                                Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
+                                progressBar.setVisibility(View.GONE);
+                                getActivity().getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.container, new ProfitFragment(crop))
+                                        .addToBackStack("profit+fragment")
+                                        .commit();
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Log.d("Raghav", stringResponse);
                         }
-                        Log.d("Raghav", stringResponse);
-                    }
-                }.execute(sqlInput);
+                    }.execute(sqlInput);
 
+                }
             }
         });
         buildFarmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(validate()){
                     Intent intent = new Intent(getActivity().getApplicationContext(), CustomMapActivity.class);
                     intent.putExtra("Area", farmAreaEdTxt.getText().toString());
                     startActivity(intent);
+                }
 
             }
         });
 
 
     return rootView;
+    }
+
+    private boolean validate(){
+        if(Utils.isEditTextEmpty(farmAreaEdTxt)){
+            farmAreaEdTxt.setError("Required");
+            return false;
+        }
+        if(Utils.isEditTextEmpty(farmLocationEdTxt)){
+            farmLocationEdTxt.setError("Required");
+            return false;
+        }
+        if(Utils.isEditTextEmpty(farmBudgetEdTxt)){
+            farmBudgetEdTxt.setError("Required");
+            return false;
+        }
+        return true;
     }
 
 }

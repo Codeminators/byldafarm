@@ -1,6 +1,7 @@
 package geekfest.com.byldafarm;
 
 import android.util.Log;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -60,5 +61,13 @@ public class Utils {
             seasons.add(RABI);
         }
         return seasons;
+    }
+
+    public static boolean isEditTextEmpty(EditText editText) {
+        String text = editText.getText().toString();
+        if (text.matches("")) {
+            return true;
+        }
+        return false;
     }
 }
