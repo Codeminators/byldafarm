@@ -57,7 +57,7 @@ public class MainFragment extends Fragment {
                 if (validate()) {
 
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
-                    final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
+                    final double farmArea = Double.parseDouble(farmAreaEdTxt.getText().toString());
                     location = farmLocationEdTxt.getText().toString();
                     final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
 

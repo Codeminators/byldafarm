@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by raghav on 28/04/15.
  */
 public class random {
-    public static FarmCalculationResult efficientFarm(int budget, int farmArea)//, ArrayList<Crop> crop)
+    public static FarmCalculationResult efficientFarm(int budget, double farmArea)//, ArrayList<Crop> crop)
     {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
@@ -56,6 +56,9 @@ public class random {
                 //175421.0 18.25 0.0 119889.0
             }
         }
+        if(farmCalculationResult.totalProfit == 0.0){
+            return efficientFarm(budget, area * 99.0/100.0 );
+        }
         return farmCalculationResult;
     }
 
@@ -68,7 +71,7 @@ public class random {
         int crop1sellingprice, crop2sellingprice, crop3sellingprice, crop1costprice, crop2costprice, crop3costprice;
 
 
-        FarmCalculationResult farmCalculationResult = efficientFarm(1200000, 200);
+        FarmCalculationResult farmCalculationResult = efficientFarm(12, 200);
 
         System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.totalCost);
 //        System.out.println(maxProf + " " + (maxcrop1Area/100)*area + " " + (maxcrop2Area/100)*area + " " + (maxcrop3Area/100)*area);

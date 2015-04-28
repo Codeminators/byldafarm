@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class AlgorithmTwoCrops {
 
-    public static FarmCalculationResult efficientFarm(int budget, int farmArea, ArrayList<Crop> crop) {
+    public static FarmCalculationResult efficientFarm(int budget, double farmArea, ArrayList<Crop> crop) {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
 
@@ -53,11 +53,15 @@ public class AlgorithmTwoCrops {
                         farmCalculationResult.maxAreaCrop3 = (100 - i - j) * area / 100;
                         farmCalculationResult.totalCost = totalCostPrice;
                         farmCalculationResult.totalProfit = max;
+                        farmCalculationResult.areaUsed = area;
                         System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " + farmCalculationResult.totalCost);
                     }
                 }
                 //175421.0 18.25 0.0 119889.0
             }
+        }
+        if(farmCalculationResult.totalProfit == 0.0){
+            return efficientFarm(budget, area * 99.0/100.0, crop);
         }
         return farmCalculationResult;
     }

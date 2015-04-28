@@ -9,4 +9,5 @@ public class FarmCalculationResult {
     double maxAreaCrop1;
     double maxAreaCrop2;
     double maxAreaCrop3;
+    double areaUsed;
 }
