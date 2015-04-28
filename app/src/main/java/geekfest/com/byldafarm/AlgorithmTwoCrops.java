@@ -11,10 +11,10 @@ public class AlgorithmTwoCrops {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
 
-        int crop1CostPrice = 4086;
-        int crop1SellingPrice = 8945;
-        int crop2CostPrice = 5714;
-        int crop2SellingPrice = 9565;
+        int crop1CostPrice = 0;
+        int crop1SellingPrice = 0;
+        int crop2CostPrice = 0;
+        int crop2SellingPrice = 0;
         int crop3CostPrice = 0;
         int crop3SellingPrice = 0;
         double max = 0.0;
