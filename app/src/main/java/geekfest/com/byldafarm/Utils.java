@@ -10,7 +10,7 @@ import java.util.Calendar;
  * Created by raghav on 22/03/15.
  */
 public class Utils {
-    public static ArrayList<String> getSeason(){
+    public static ArrayList<String> getSeason() {
 
         final String WINTER = "Winter";
         final String KHARIF = "Kharif";
@@ -26,27 +26,27 @@ public class Utils {
         ArrayList<String> seasons = new ArrayList<>();
 
         seasons.add(WHOLE_YEAR);
-        if(month == 0) {
+        if (month == 0) {
             seasons.add(RABI);
             seasons.add(WINTER);
-        } else if(month == 1){
+        } else if (month == 1) {
             seasons.add(RABI);
             seasons.add(WINTER);
-        } else if(month == 2){
+        } else if (month == 2) {
             seasons.add(KHARIF);
             seasons.add(RABI);
             //seasons.add(WINTER);
             //seasons.add(SUMMER);
             //seasons.add(KHARIF);
-        } else if(month == 3){
+        } else if (month == 3) {
             seasons.add(SUMMER);
-        } else if(month == 4) {
+        } else if (month == 4) {
             seasons.add(SUMMER);
         } else if (month == 5) {
             seasons.add(SUMMER);
         } else if (month == 6) {
             seasons.add(KHARIF);
-        } else if(month == 7){
+        } else if (month == 7) {
             seasons.add(KHARIF);
         } else if (month == 8) {
             seasons.add(KHARIF);

@@ -24,12 +24,12 @@ import java.util.ArrayList;
  */
 public class ProfitFragment extends android.support.v4.app.Fragment {
 
+    protected ArrayList<String> mParties = new ArrayList<>();
+    FarmCalculationResult mainResult;
     private PieChart mChart;
     private ArrayList<Crop> arrayList;
-    FarmCalculationResult mainResult;
-    protected ArrayList<String> mParties = new ArrayList<>();
 
-    public ProfitFragment(){
+    public ProfitFragment() {
 
     }
 
@@ -58,31 +58,32 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         TextView fert1 = (TextView) rootView.findViewById(R.id.aafertilizer1);
         TextView irri1 = (TextView) rootView.findViewById(R.id.aairrigation1);
         TextView labor1 = (TextView) rootView.findViewById(R.id.aalabour1);
-        seed1.setText("Seed cost price(1) = Rs. " +arrayList.get(0).costPrice);
-        fert1.setText("Fertilizer price(1) = Rs. " +arrayList.get(0).fertilizerCost);
-        irri1.setText("Irrigation price(1) = Rs. " +arrayList.get(0).irrigationCost);
-        labor1.setText("Labor price(1) = Rs. " +arrayList.get(0).labourCost);
+        seed1.setText("Seed cost price(1) = Rs. " + arrayList.get(0).costPrice);
+        fert1.setText("Fertilizer price(1) = Rs. " + arrayList.get(0).fertilizerCost);
+        irri1.setText("Irrigation price(1) = Rs. " + arrayList.get(0).irrigationCost);
+        labor1.setText("Labor price(1) = Rs. " + arrayList.get(0).labourCost);
         TextView seed2 = (TextView) rootView.findViewById(R.id.aacostofseeds2);
         TextView fert2 = (TextView) rootView.findViewById(R.id.aafertilizer2);
         TextView irri2 = (TextView) rootView.findViewById(R.id.aairrigation2);
         TextView labor2 = (TextView) rootView.findViewById(R.id.aalabour2);
-        seed2.setText("Seed cost price(2) = Rs. " +arrayList.get(1).costPrice);
-        fert2.setText("Fertilizer price(2) = Rs. " +arrayList.get(1).fertilizerCost);
-        irri2.setText("Irrigation price(2) = Rs. " +arrayList.get(1).irrigationCost);
-        labor2.setText("Labor price(2) = Rs. " +arrayList.get(1).labourCost);
+        seed2.setText("Seed cost price(2) = Rs. " + arrayList.get(1).costPrice);
+        fert2.setText("Fertilizer price(2) = Rs. " + arrayList.get(1).fertilizerCost);
+        irri2.setText("Irrigation price(2) = Rs. " + arrayList.get(1).irrigationCost);
+        labor2.setText("Labor price(2) = Rs. " + arrayList.get(1).labourCost);
         TextView seed3 = (TextView) rootView.findViewById(R.id.aacostofseeds3);
         TextView fert3 = (TextView) rootView.findViewById(R.id.aafertilizer3);
         TextView irri3 = (TextView) rootView.findViewById(R.id.aairrigation3);
         TextView labor3 = (TextView) rootView.findViewById(R.id.aalabour3);
-        seed3.setText("Seed cost price(3) = Rs. " +arrayList.get(2).costPrice);
-        fert3.setText("Fertilizer price(3) = Rs. " +arrayList.get(2).fertilizerCost);
-        irri3.setText("Irrigation price(3) = Rs. " +arrayList.get(2).irrigationCost);
-        labor3.setText("Labor price(3) = Rs. " +arrayList.get(2).labourCost);
+        seed3.setText("Seed cost price(3) = Rs. " + arrayList.get(2).costPrice);
+        fert3.setText("Fertilizer price(3) = Rs. " + arrayList.get(2).fertilizerCost);
+        irri3.setText("Irrigation price(3) = Rs. " + arrayList.get(2).irrigationCost);
+        labor3.setText("Labor price(3) = Rs. " + arrayList.get(2).labourCost);
         return rootView;
     }
+
     private void setData(int count, float range) {
         float mult = range;
-        for(int i = 0; i < arrayList.size(); i++){
+        for (int i = 0; i < arrayList.size(); i++) {
             mParties.add(arrayList.get(i).cropName);
         }
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();

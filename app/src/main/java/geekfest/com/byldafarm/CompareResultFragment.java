@@ -15,7 +15,7 @@ public class CompareResultFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CompareResultFragment newInstance(){
+    public static CompareResultFragment newInstance() {
         CompareResultFragment compareResultFragment = new CompareResultFragment();
         return compareResultFragment;
     }

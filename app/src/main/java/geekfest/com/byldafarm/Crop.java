@@ -15,5 +15,4 @@ public class Crop {
     float maxArea;
 
 
-
 }

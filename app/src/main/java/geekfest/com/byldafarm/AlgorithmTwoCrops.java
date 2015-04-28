@@ -7,8 +7,7 @@ import java.util.ArrayList;
  */
 public class AlgorithmTwoCrops {
 
-    public static FarmCalculationResult efficientFarm(int budget, int farmArea, ArrayList<Crop> crop)
-    {
+    public static FarmCalculationResult efficientFarm(int budget, int farmArea, ArrayList<Crop> crop) {
         FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
         double area = (double) farmArea;
 
@@ -23,30 +22,29 @@ public class AlgorithmTwoCrops {
 
         double totalCostPrice = 0.0, totalSellingPrice = 0.0;
 
-        for(int a = 0; a < crop.size(); a++) {
+        for (int a = 0; a < crop.size(); a++) {
             if (a == 0) {
                 crop1CostPrice = crop.get(a).costPrice;
                 crop1SellingPrice = crop.get(a).sellingPrice;
             } else if (a == 1) {
                 crop2CostPrice = crop.get(a).costPrice;
                 crop2SellingPrice = crop.get(a).sellingPrice;
-            }
-            else if (a == 2) {
+            } else if (a == 2) {
                 crop3CostPrice = crop.get(a).costPrice;
                 crop3SellingPrice = crop.get(a).sellingPrice;
             }
         }
 
-        for(int i = 0; i <= 100; i++){
+        for (int i = 0; i <= 100; i++) {
 
-            for(int j = 0; j + i <= 100; j++) {
+            for (int j = 0; j + i <= 100; j++) {
 
-                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (j) * area / 100 + crop3CostPrice * (100-i-j) * area / 100;
+                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (j) * area / 100 + crop3CostPrice * (100 - i - j) * area / 100;
 //                System.out.println(i + " " + j + " " + (100 -i -j));
 
                 if (totalCostPrice <= budget) {
 
-                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (j) * area / 100 + crop3SellingPrice * (100-i-j) * area / 100;
+                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (j) * area / 100 + crop3SellingPrice * (100 - i - j) * area / 100;
 
                     if (totalSellingPrice - totalCostPrice > max) {
                         max = totalSellingPrice - totalCostPrice;
@@ -55,10 +53,10 @@ public class AlgorithmTwoCrops {
                         farmCalculationResult.maxAreaCrop3 = (100 - i - j) * area / 100;
                         farmCalculationResult.totalCost = totalCostPrice;
                         farmCalculationResult.totalProfit = max;
-                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " +farmCalculationResult.totalCost);
+                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " + farmCalculationResult.totalCost);
                     }
                 }
-            //175421.0 18.25 0.0 119889.0
+                //175421.0 18.25 0.0 119889.0
             }
         }
         return farmCalculationResult;

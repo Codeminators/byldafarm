@@ -26,11 +26,11 @@ public class SplashScreen extends Activity {
         Display display = getWindowManager().getDefaultDisplay();
         width = display.getWidth();
         height = display.getHeight();
-        imageSplash = (ImageView)findViewById(R.id.imageSplash);
+        imageSplash = (ImageView) findViewById(R.id.imageSplash);
         imageSplash.setVisibility(View.INVISIBLE);
         AnimationSet as = new AnimationSet(true);
-        Animation aa = new ScaleAnimation((float)0.6
-                , (float)0.5, (float)0.6, (float)0.5
+        Animation aa = new ScaleAnimation((float) 0.6
+                , (float) 0.5, (float) 0.6, (float) 0.5
                 , width / 2
                 , height / 2);
         aa.setDuration(2000);

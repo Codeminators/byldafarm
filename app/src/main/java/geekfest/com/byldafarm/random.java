@@ -32,16 +32,16 @@ public class random {
 //            }
 //        }
 
-        for(int i = 0; i <= 100; i++){
+        for (int i = 0; i <= 100; i++) {
 
-            for(int j = 0; j + i <= 100; j++) {
+            for (int j = 0; j + i <= 100; j++) {
 
-                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (j) * area / 100 + crop3CostPrice * (100-i-j) * area / 100;
+                totalCostPrice = crop1CostPrice * i * area / 100 + crop2CostPrice * (j) * area / 100 + crop3CostPrice * (100 - i - j) * area / 100;
 //                System.out.println(i + " " + j + " " + (100 -i -j));
 
                 if (totalCostPrice <= budget) {
 
-                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (j) * area / 100 + crop3SellingPrice * (100-i-j) * area / 100;
+                    totalSellingPrice = crop1SellingPrice * i * area / 100 + crop2SellingPrice * (j) * area / 100 + crop3SellingPrice * (100 - i - j) * area / 100;
 
                     if (totalSellingPrice - totalCostPrice > max) {
                         max = totalSellingPrice - totalCostPrice;
@@ -50,7 +50,7 @@ public class random {
                         farmCalculationResult.maxAreaCrop3 = (100 - i - j) * area / 100;
                         farmCalculationResult.totalCost = totalCostPrice;
                         farmCalculationResult.totalProfit = max;
-                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " +farmCalculationResult.totalCost);
+                        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.maxAreaCrop3 + " " + farmCalculationResult.totalCost);
                     }
                 }
                 //175421.0 18.25 0.0 119889.0
@@ -59,7 +59,7 @@ public class random {
         return farmCalculationResult;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         //    int bugdet = s.nextInt();
         //      int noOfCrops = s.nextInt();
@@ -68,11 +68,9 @@ public class random {
         int crop1sellingprice, crop2sellingprice, crop3sellingprice, crop1costprice, crop2costprice, crop3costprice;
 
 
-
-
         FarmCalculationResult farmCalculationResult = efficientFarm(1200000, 200);
 
-        System.out.println(farmCalculationResult.totalProfit+ " " + farmCalculationResult.maxAreaCrop1+ " " + farmCalculationResult.maxAreaCrop2+ " " + farmCalculationResult.totalCost);
+        System.out.println(farmCalculationResult.totalProfit + " " + farmCalculationResult.maxAreaCrop1 + " " + farmCalculationResult.maxAreaCrop2 + " " + farmCalculationResult.totalCost);
 //        System.out.println(maxProf + " " + (maxcrop1Area/100)*area + " " + (maxcrop2Area/100)*area + " " + (maxcrop3Area/100)*area);
     }
 }

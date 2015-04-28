@@ -48,17 +48,17 @@ public class CustomMapActivity extends ActionBarActivity {
         Log.d("Area", area);
         gridView = (GridView) findViewById(R.id.grid_view);
         areaText = (TextView) findViewById(R.id.areaText);
-        areaText.setText("Scale : 1 unit = " + Float.parseFloat(area)/25.0 + " Hectare");
+        areaText.setText("Scale : 1 unit = " + Float.parseFloat(area) / 25.0 + " Hectare");
         submitButton = (Button) findViewById(R.id.submit);
         radioGroup = new RadioGroup(this);
         radioGroup.setOrientation(LinearLayout.HORIZONTAL);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         final ArrayList<String> cropList = new ArrayList<>();
-        cropList.add(0,"Bajra");
-        cropList.add(0,"Maize");
-        cropList.add(0,"SugerCane");
+        cropList.add(0, "Bajra");
+        cropList.add(0, "Maize");
+        cropList.add(0, "SugerCane");
 
-        for(int i = 0; i < cropList.size(); i++){
+        for (int i = 0; i < cropList.size(); i++) {
             final RadioButton button = new RadioButton(this);
             button.setId(i);
             button.setBackgroundColor(Color.parseColor("#00000000"));
@@ -71,20 +71,19 @@ public class CustomMapActivity extends ActionBarActivity {
             button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if(buttonView.isChecked()){
-                        switch (j){
-                            case 0 :
+                    if (buttonView.isChecked()) {
+                        switch (j) {
+                            case 0:
                                 button.setTextColor(Color.parseColor("#FF0000"));
                                 break;
-                            case 1 :
+                            case 1:
                                 button.setTextColor(Color.parseColor("#00FF00"));
                                 break;
-                            case 2 :
+                            case 2:
                                 button.setTextColor(Color.parseColor("#0000FF"));
                                 break;
                         }
-                    }
-                    else{
+                    } else {
                         button.setTextColor(Color.parseColor("#bdbdbd"));
                     }
                 }
@@ -94,8 +93,6 @@ public class CustomMapActivity extends ActionBarActivity {
 
         relativeLayout.addView(radioGroup);
         ArrayList<String> cropsGrown = Utils.getSeason();
-
-
 
 
         gridAdapter = new Adapter(getApplicationContext());
@@ -110,17 +107,17 @@ public class CustomMapActivity extends ActionBarActivity {
 //                         gridView.getFocusedChild().setBackgroundColor(Color.parseColor("#000000"));
 
                     gridView.setSelection(gridView.pointToPosition((int) event.getX(), (int) event.getY()));
-                    if(gridView.getSelectedItemPosition() != -1 && gridView.getChildAt(gridView.getSelectedItemPosition()).getTag() == null) {
-                        switch (radioGroup.getCheckedRadioButtonId()){
-                            case 0 :
+                    if (gridView.getSelectedItemPosition() != -1 && gridView.getChildAt(gridView.getSelectedItemPosition()).getTag() == null) {
+                        switch (radioGroup.getCheckedRadioButtonId()) {
+                            case 0:
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setBackgroundColor(Color.parseColor("#FF0000"));
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setTag(0);
                                 break;
-                            case 1 :
+                            case 1:
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setBackgroundColor(Color.parseColor("#00FF00"));
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setTag(1);
                                 break;
-                            case 2 :
+                            case 2:
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setBackgroundColor(Color.parseColor("#0000FF"));
                                 gridView.getChildAt(gridView.getSelectedItemPosition()).setTag(2);
                                 break;
@@ -147,22 +144,25 @@ public class CustomMapActivity extends ActionBarActivity {
                 int crop2 = 0;
                 int crop3 = 0;
                 int sum = 0;
-                for(int i = 0; i < gridView.getChildCount(); i++){
-                    if(gridView.getChildAt(i).getTag()!= null){
-                        int index = (Integer)gridView.getChildAt(i).getTag();
-                        switch (index){
-                            case 0 : crop1++;
+                for (int i = 0; i < gridView.getChildCount(); i++) {
+                    if (gridView.getChildAt(i).getTag() != null) {
+                        int index = (Integer) gridView.getChildAt(i).getTag();
+                        switch (index) {
+                            case 0:
+                                crop1++;
                                 break;
-                            case 1 : crop2++;
+                            case 1:
+                                crop2++;
                                 break;
-                            case 2 : crop3++;
+                            case 2:
+                                crop3++;
                                 break;
                         }
                         sum++;
                     }
                 }
 
-                if(sum == gridView.getChildCount()){
+                if (sum == gridView.getChildCount()) {
                     Log.d("Crop Value", crop1 + " " + crop2 + " " + crop3);
                     Intent intent = new Intent(getApplicationContext(), CustomProfitActivity.class);
                     intent.putExtra("crop1", crop1);
@@ -175,39 +175,6 @@ public class CustomMapActivity extends ActionBarActivity {
         });
 
 
-    }
-
-    public class Adapter extends BaseAdapter{
-
-        Context c;
-        public Adapter(Context context){
-            this.c = context;
-        }
-
-        @Override
-        public int getCount() {
-            return 25;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater layoutInflater = (LayoutInflater)c.getSystemService(c.LAYOUT_INFLATER_SERVICE);
-            View v = convertView;
-            if(convertView == null){
-                v = layoutInflater.inflate(R.layout.grid_item, null);
-            }
-            return v;
-        }
     }
 
     @Override
@@ -230,5 +197,39 @@ public class CustomMapActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class Adapter extends BaseAdapter {
+
+        Context c;
+
+        public Adapter(Context context) {
+            this.c = context;
+        }
+
+        @Override
+        public int getCount() {
+            return 25;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater layoutInflater = (LayoutInflater) c.getSystemService(c.LAYOUT_INFLATER_SERVICE);
+            View v = convertView;
+            if (convertView == null) {
+                v = layoutInflater.inflate(R.layout.grid_item, null);
+            }
+            return v;
+        }
     }
 }
