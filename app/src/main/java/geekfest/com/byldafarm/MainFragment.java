@@ -58,39 +58,40 @@ public class MainFragment extends Fragment {
 
                 if(validate()){
 
-                    final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
-                    final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
-                    location = farmLocationEdTxt.getText().toString();
-                    final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN ("+ stringToPassInSQL;
+                final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
+                final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
+                location = farmLocationEdTxt.getText().toString();
+                final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN ("+ stringToPassInSQL;
 
-                    Log.d("Raghav", sqlInput);
-                    new QueryTask(){
+                Log.d("Raghav", sqlInput);
+                new QueryTask(){
 
-                        @Override
-                        protected void onPreExecute() {
-                            progressBar.setVisibility(View.VISIBLE);
-                        }
+                    @Override
+                    protected void onPreExecute() {
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
 
 
-                        @Override
-                        protected void onPostExecute(String stringResponse) {
-                            try {
+                    @Override
+                    protected void onPostExecute(String stringResponse) {
+                        try {
 
-                                JSONArray jsonArray = new JSONArray(stringResponse);
-                                ArrayList<Crop> crop = new ArrayList<Crop>();
-                                int i = 0;
-                                while(i < jsonArray.length() && i < 3) {
-                                    crop.add(i, new Crop());
-                                    crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
-                                    crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
-                                    crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
-                                    crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
-                                    crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
-                                    crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
-                                    crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
-                                    i++;
-                                }
-                                FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
+                            JSONArray jsonArray = new JSONArray(stringResponse);
+                            ArrayList<Crop> crop = new ArrayList<Crop>();
+                            int i = 0;
+                            while(i < jsonArray.length() && i < 3) {
+                                crop.add(i, new Crop());
+                                crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
+                                crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
+                                crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
+                                crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
+                                crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
+                                crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                i++;
+                            }
+                            FarmCalculationResult farmCalResult = AlgorithmTwoCrops.efficientFarm(farmBudget, farmArea, crop);
+
 //                            for( i = 0; i < crop.size(); i++){
 //                                if(i == 0){
 //                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
@@ -104,19 +105,20 @@ public class MainFragment extends Fragment {
 //                                }
 //                            }
 //                            maxProfit = farmCalResult.totalProfit;
-                                Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
-                                progressBar.setVisibility(View.GONE);
-                                getActivity().getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.container, new ProfitFragment(crop))
-                                        .addToBackStack("profit+fragment")
-                                        .commit();
+                            Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
+                            progressBar.setVisibility(View.GONE);
 
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            Log.d("Raghav", stringResponse);
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.container, new ProfitFragment(crop, farmCalResult))
+                                    .commit();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+                    }
                     }.execute(sqlInput);
+
+
 
                 }
             }
