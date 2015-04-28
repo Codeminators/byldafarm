@@ -106,6 +106,7 @@ public class MainFragment extends Fragment {
                             progressBar.setVisibility(View.GONE);
                             getActivity().getSupportFragmentManager().beginTransaction()
                                     .replace(R.id.container, new ProfitFragment(crop))
+                                    .addToBackStack("profit+fragment")
                                     .commit();
 
                         } catch (JSONException e) {
