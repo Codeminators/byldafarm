@@ -108,6 +108,7 @@ public class MainFragment extends Fragment {
 
                                 getActivity().getSupportFragmentManager().beginTransaction()
                                         .replace(R.id.container, new ProfitFragment(crop, farmCalResult))
+                                        .addToBackStack("profitFragment")
                                         .commit();
 
                             } catch (JSONException e) {
