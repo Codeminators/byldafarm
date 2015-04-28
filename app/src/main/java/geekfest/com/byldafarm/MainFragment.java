@@ -89,19 +89,19 @@ public class MainFragment extends Fragment {
                                 i++;
                             }
                             FarmCalculationResult farmCalResult = AlgorithmBadCase.efficientFarm(farmBudget, farmArea, crop);
-                            for( i = 0; i < crop.size(); i++){
-                                if(i == 0){
-                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
-
-                                } else if (i == 1) {
-                                   crop.get(i).maxArea = farmCalResult.maxAreaCrop2;
-
-                                } else if (i ==2) {
-                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop3;
-
-                                }
-                            }
-                            maxProfit = farmCalResult.totalProfit;
+//                            for( i = 0; i < crop.size(); i++){
+//                                if(i == 0){
+//                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop1;
+//
+//                                } else if (i == 1) {
+//                                   crop.get(i).maxArea = farmCalResult.maxAreaCrop2;
+//
+//                                } else if (i ==2) {
+//                                    crop.get(i).maxArea = farmCalResult.maxAreaCrop3;
+//
+//                                }
+//                            }
+//                            maxProfit = farmCalResult.totalProfit;
                             Log.d("Raghav", "" + maxProfit + "" + farmCalResult.maxAreaCrop1+ ""+ farmCalResult.maxAreaCrop2+ "" +farmCalResult.maxAreaCrop3);
                             progressBar.setVisibility(View.GONE);
                             getActivity().getSupportFragmentManager().beginTransaction()

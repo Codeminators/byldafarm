@@ -41,6 +41,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_profit, container, false);
+
         mChart = (PieChart) rootView.findViewById(R.id.chart);
         mChart.setUsePercentValues(true);
         mChart.setHoleColorTransparent(true);
