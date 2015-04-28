@@ -44,7 +44,8 @@ public class CustomMapActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_map);
         Intent intent = getIntent();
-        String area = intent.getStringExtra("Area");
+        final String area = intent.getStringExtra("Area");
+        final ArrayList<Crop> crops = (ArrayList<Crop>) intent.getSerializableExtra("Crops");
         Log.d("Area", area);
         gridView = (GridView) findViewById(R.id.grid_view);
         areaText = (TextView) findViewById(R.id.areaText);
@@ -54,9 +55,9 @@ public class CustomMapActivity extends ActionBarActivity {
         radioGroup.setOrientation(LinearLayout.HORIZONTAL);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         final ArrayList<String> cropList = new ArrayList<>();
-        cropList.add(0, "Bajra");
-        cropList.add(0, "Maize");
-        cropList.add(0, "SugerCane");
+        for(int i = 0; i < crops.size(); i++){
+            cropList.add(i, crops.get(i).cropName);
+        }
 
         for (int i = 0; i < cropList.size(); i++) {
             final RadioButton button = new RadioButton(this);
@@ -140,10 +141,10 @@ public class CustomMapActivity extends ActionBarActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int crop1 = 0;
-                int crop2 = 0;
-                int crop3 = 0;
-                int sum = 0;
+                double crop1 = 0.0;
+                double crop2 = 0.0;
+                double crop3 = 0.0;
+                double sum = 0.0;
                 for (int i = 0; i < gridView.getChildCount(); i++) {
                     if (gridView.getChildAt(i).getTag() != null) {
                         int index = (Integer) gridView.getChildAt(i).getTag();
@@ -164,11 +165,37 @@ public class CustomMapActivity extends ActionBarActivity {
 
                 if (sum == gridView.getChildCount()) {
                     Log.d("Crop Value", crop1 + " " + crop2 + " " + crop3);
-                    Intent intent = new Intent(getApplicationContext(), CustomProfitActivity.class);
-                    intent.putExtra("crop1", crop1);
-                    intent.putExtra("crop2", crop2);
-                    intent.putExtra("crop3", crop3);
-                    startActivity(intent);
+//                    Intent intent = new Intent(getApplicationContext(), CustomProfitActivity.class);
+//                    intent.putExtra("crop1", crop1);
+//                    intent.putExtra("crop2", crop2);
+//                    intent.putExtra("crop3", crop3);
+//                    startActivity(intent);
+                    double Area = Double.parseDouble(area);
+                    FarmCalculationResult farmCalculationResult = new FarmCalculationResult();
+                    farmCalculationResult.maxAreaCrop1 = crop1/25*Area;
+                    farmCalculationResult.maxAreaCrop2 = crop2/25*Area;
+                    farmCalculationResult.maxAreaCrop3 = crop3/25*Area;
+                    double profit = 0.0;
+                    double cost = 0.0;
+                    for(int i = 0; i < crops.size(); i++){
+                        if(i == 0){
+                            profit = profit + ((crops.get(i).sellingPrice * (crop1/25*Area)) - (crops.get(i).costPrice * (crop1/25*Area)));
+                            cost = cost + (crops.get(i).costPrice * (crop1/25*Area));
+                        }
+                        else if(i == 1){
+                            profit = profit + ((crops.get(i).sellingPrice * (crop2/25*Area)) - (crops.get(i).costPrice * (crop2/25*Area)));
+                            cost = cost + (crops.get(i).costPrice * (crop1/25*Area));
+                        }
+                        else if(i == 2){
+                            profit = profit + ((crops.get(i).sellingPrice * (crop3/25*Area)) - (crops.get(i).costPrice * (crop3/25*Area)));
+                            cost = cost + (crops.get(i).costPrice * (crop1/25*Area));
+                        }
+                    }
+                    farmCalculationResult.totalProfit = profit;
+                    farmCalculationResult.totalCost = cost;
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.relativeLayout, new ProfitFragment(crops, farmCalculationResult))
+                            .commit();
                 }
             }
 
