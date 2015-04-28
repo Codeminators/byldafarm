@@ -31,7 +31,7 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         submitButton = (Button) rootView.findViewById(R.id.submit);
@@ -125,9 +125,48 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
 
                 if (validate()) {
-                    Intent intent = new Intent(getActivity().getApplicationContext(), CustomMapActivity.class);
-                    intent.putExtra("Area", farmAreaEdTxt.getText().toString());
-                    startActivity(intent);
+                    final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
+                    final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
+                    location = farmLocationEdTxt.getText().toString();
+                    final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
+
+                    Log.d("Raghav", sqlInput);
+                    new QueryTask() {
+
+                        @Override
+                        protected void onPreExecute() {
+                            progressBar.setVisibility(View.VISIBLE);
+                        }
+
+
+                        @Override
+                        protected void onPostExecute(String stringResponse) {
+                            try {
+
+                                JSONArray jsonArray = new JSONArray(stringResponse);
+                                ArrayList<Crop> crop = new ArrayList<Crop>();
+                                int i = 0;
+                                while (i < jsonArray.length() && i < 3) {
+                                    crop.add(i, new Crop());
+                                    crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
+                                    crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
+                                    crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
+                                    crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
+                                    crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                    crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
+                                    crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                    i++;
+                                }
+                                Intent intent = new Intent(getActivity(), CustomMapActivity.class);
+                                intent.putExtra("Area", farmAreaEdTxt.getText().toString());
+                                intent.putExtra("Crops", crop);
+                                startActivity(intent);
+                                progressBar.setVisibility(View.GONE);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }.execute(sqlInput);
                 }
 
             }

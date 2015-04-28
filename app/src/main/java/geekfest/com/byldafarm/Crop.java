@@ -1,9 +1,11 @@
 package geekfest.com.byldafarm;
 
+import java.io.Serializable;
+
 /**
  * Created by raghav on 22/03/15.
  */
-public class Crop {
+public class Crop implements Serializable{
 
     String cropName;
     int seedCost;
