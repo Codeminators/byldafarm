@@ -18,9 +18,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 
 /**
  * Created by prempal on 22/3/15.
@@ -211,7 +208,11 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (validate()) {
+                if(!Utils.isConnectedToInternet(getActivity())){
+                    Toast.makeText(getActivity(),"The app requires Internet connectivity to function properly",Toast.LENGTH_SHORT).show();
+                }
+
+                else if (validate()) {
 
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
                     final double farmArea = Double.parseDouble(farmAreaEdTxt.getText().toString());
@@ -283,7 +284,11 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (validate()) {
+                if(!Utils.isConnectedToInternet(getActivity())){
+                    Toast.makeText(getActivity(),"The app requires Internet connectivity to function properly",Toast.LENGTH_SHORT).show();
+                }
+
+                else if (validate()) {
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
                     final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
                     location = farmLocation.getSelectedItem().toString();
