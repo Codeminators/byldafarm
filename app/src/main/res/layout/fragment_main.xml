@@ -22,7 +22,7 @@
             android:digits="0123456789"
             android:imeOptions="actionNext"
             android:singleLine="true"
-            android:hint="Farm Area (in Hectares)"
+            android:hint="@string/area"
             android:textAlignment="center"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/farm_budget"
@@ -48,7 +48,7 @@
             android:id="@+id/farm_budget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Budget(in Rs.)"
+            android:hint="@string/budget"
             android:textAlignment="center"
             android:inputType="phone"
             android:digits="0123456789"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/bbuton_primary_rounded"
-            android:text="Submit"
+            android:text="@string/submit"
             android:layout_below="@+id/farm_budget"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp" />
@@ -73,7 +73,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/bbuton_primary_rounded"
         android:layout_margin="20dp"
-        android:text="Build a Farm"
+        android:text="@string/build"
         android:id="@+id/build_a_farm"
         />
 
