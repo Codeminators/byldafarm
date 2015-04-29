@@ -48,7 +48,8 @@ public class MainFragment extends Fragment {
 
         ArrayList<String> cropsGrown = Utils.getSeason();
 
-
+        Log.d("MainFragment", stringToPassInSQL);
+        stringToPassInSQL = "";
         for (int i = 0; i < cropsGrown.size(); i++) {
             if (i == cropsGrown.size() - 1) {
                 stringToPassInSQL = stringToPassInSQL + "\'" + cropsGrown.get(i) + "\');";
