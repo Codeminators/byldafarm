@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".CustomMapActivity"
-            android:label="@string/title_activity_custom_map"
+            android:label="Build a Farm"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
