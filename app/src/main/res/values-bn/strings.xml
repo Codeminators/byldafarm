@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="area">ক্ষেত্রফল</string>
+    <string name="district">জেলা</string>
+    <string name="build">নির্মাণ করা</string>
+    <string name="cost">মোট খরচ</string>
+    <string name="profit">লাভ</string>
+    <string name="budget">বাজেট</string>
+    <string name="submit">জমা</string>
+    <string name="seed">বীজ</string>
+    <string name="irrigation">জলসেচন</string>
+    <string name="insecticides">কীটনাশক</string>
+    <string name="interest">সুদ</string>
+    <string name="rent">ভাড়া</string>
+    <string name="depreciation">অবচয়</string>
+</resources>
