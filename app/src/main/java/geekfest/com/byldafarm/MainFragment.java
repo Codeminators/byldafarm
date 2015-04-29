@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,10 +47,14 @@ public class MainFragment extends Fragment {
         buildFarmButton = (Button) rootView.findViewById(R.id.build_a_farm);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
 
+        if(!Utils.isConnectedToInternet(getActivity())){
+            Toast.makeText(getActivity(),"The app requires Internet connectivity to function properly",Toast.LENGTH_SHORT).show();
+        }
+
         ArrayList<String> cropsGrown = Utils.getSeason();
 
-        Log.d("MainFragment", stringToPassInSQL);
         stringToPassInSQL = "";
+
         for (int i = 0; i < cropsGrown.size(); i++) {
             if (i == cropsGrown.size() - 1) {
                 stringToPassInSQL = stringToPassInSQL + "\'" + cropsGrown.get(i) + "\');";
