@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -28,15 +29,17 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
     protected ArrayList<String> mParties = new ArrayList<>();
     FarmCalculationResult mainResult;
     private PieChart mChart;
+    int budget;
     private ArrayList<Crop> arrayList;
 
     public ProfitFragment() {
 
     }
 
-    public ProfitFragment(ArrayList<Crop> crop, FarmCalculationResult farmCalculationResult) {
+    public ProfitFragment(ArrayList<Crop> crop, FarmCalculationResult farmCalculationResult, int budget) {
         arrayList = crop;
         mainResult = farmCalculationResult;
+        budget = budget;
 
     }
 
@@ -60,6 +63,11 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         TextView totalCost = (TextView) rootView.findViewById(R.id.totalCost);
         areaText.setText("Area used = " + mainResult.areaUsed + " hectares");
         totalCost.setText("Total cost = " + String.format("%.2f",mainResult.totalCost));
+
+        if(mainResult.totalCost > budget) {
+            Toast.makeText(getActivity(), "The total cost is more than your budget", Toast.LENGTH_LONG)
+                    .show();
+        }
 
         TextView seed1 = (TextView) rootView.findViewById(R.id.aacostofseeds1);
         TextView fert1 = (TextView) rootView.findViewById(R.id.aafertilizer1);

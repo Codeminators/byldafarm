@@ -264,7 +264,7 @@ public class MainFragment extends Fragment {
                                 progressBar.setVisibility(View.GONE);
 
                                 getActivity().getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.container, new ProfitFragment(crop, farmCalResult))
+                                        .replace(R.id.container, new ProfitFragment(crop, farmCalResult, farmBudget))
                                         .addToBackStack("profitFragment")
                                         .commit();
 
@@ -318,6 +318,7 @@ public class MainFragment extends Fragment {
                                 Intent intent = new Intent(getActivity(), CustomMapActivity.class);
                                 intent.putExtra("Area", farmAreaEdTxt.getText().toString());
                                 intent.putExtra("Crops", crop);
+                                intent.putExtra("Budget", farmBudget);
                                 startActivity(intent);
                                 progressBar.setVisibility(View.GONE);
                             } catch (JSONException e) {

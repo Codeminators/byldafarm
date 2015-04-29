@@ -19,10 +19,11 @@ public class CustomMapActivity extends ActionBarActivity {
         Intent intent = getIntent();
         final String area = intent.getStringExtra("Area");
         final ArrayList<Crop> crops = (ArrayList<Crop>) intent.getSerializableExtra("Crops");
+        final int budget = intent.getIntExtra("Budget", 0);
         Log.d("Area", area);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container_custom_map, new CustomMapFragment(crops, area))
+                    .add(R.id.container_custom_map, new CustomMapFragment(crops, area, budget))
                     .commit();
         }
     }
