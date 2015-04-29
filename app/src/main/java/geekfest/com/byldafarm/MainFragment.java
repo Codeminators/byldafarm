@@ -245,6 +245,11 @@ public class MainFragment extends Fragment {
                                     crop.get(i).animalLabourCost = jsonArray.getJSONObject(i).getInt("AnimalLabour");
                                     crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
                                     crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                    crop.get(i).totalDepreciation = jsonArray.getJSONObject(i).getInt("Depreciation");
+                                    crop.get(i).totalRent = jsonArray.getJSONObject(i).getInt("RentValue");
+                                    crop.get(i).totalInterest = jsonArray.getJSONObject(i).getInt("InterestOnCapital");
+                                    crop.get(i).insecticides = jsonArray.getJSONObject(i).getInt("Insecticides");
+
                                     i++;
                                 }
                                 FarmCalculationResult farmCalResult = AlgorithmTwoCrops.efficientFarm(farmBudget, farmArea, crop);
@@ -316,9 +321,14 @@ public class MainFragment extends Fragment {
                                     crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
                                     crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
                                     crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
+                                    crop.get(i).animalLabourCost = jsonArray.getJSONObject(i).getInt("AnimalLabour");
                                     crop.get(i).manualLabourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
                                     crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
                                     crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
+                                    crop.get(i).totalDepreciation = jsonArray.getJSONObject(i).getInt("Depreciation");
+                                    crop.get(i).totalRent = jsonArray.getJSONObject(i).getInt("RentValue");
+                                    crop.get(i).totalInterest = jsonArray.getJSONObject(i).getInt("InterestOnCapital");
+                                    crop.get(i).insecticides = jsonArray.getJSONObject(i).getInt("Insecticides");
                                     i++;
                                 }
                                 Intent intent = new Intent(getActivity(), CustomMapActivity.class);
