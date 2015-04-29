@@ -55,14 +55,14 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         mChart.setUsePercentValues(true);
         mChart.setHoleColorTransparent(true);
 
-        mChart.setCenterText("Profit \n" + mainResult.totalProfit);
+        mChart.setCenterText("Profit \n₹ " + String.format("%.2f",mainResult.totalProfit));
         setData(3, 100);
         mChart.setCenterTextSizePixels(50);
         Log.d("Area", mainResult.areaUsed + "");
         TextView areaText = (TextView) rootView.findViewById(R.id.areaUsed);
         TextView totalCost = (TextView) rootView.findViewById(R.id.totalCost);
-        areaText.setText("Area used = " + mainResult.areaUsed + " hectares");
-        totalCost.setText("Total cost = " + String.format("%.2f",mainResult.totalCost));
+        areaText.setText("Area used = " + String.format("%.2f",mainResult.areaUsed) + " hectares");
+        totalCost.setText("Total cost = ₹ " + String.format("%.2f",mainResult.totalCost));
 
         if(mainResult.totalCost > budget) {
             Toast.makeText(getActivity(), "The total cost is more than your budget", Toast.LENGTH_LONG)
