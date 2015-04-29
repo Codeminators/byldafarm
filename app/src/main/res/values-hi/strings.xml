@@ -5,14 +5,17 @@
     <string name="area">जगह</string>
     <string name="district">ज़िला</string>
     <string name="build">एक खेत का निर्माण</string>
-    <string name="cost">कुल लागत</string>
-    <string name="profit">लाभ</string>
+    <string name="cost">कुल लागत =</string>
+    <string name="profit">लाभ =</string>
     <string name="budget">बजट(\u20B9)</string>
     <string name="submit">प्रस्तुत करना</string>
-    <string name="seed">बीज</string>
-    <string name="irrigation">सिंचाई</string>
-    <string name="insecticides">कीटनाशक</string>
-    <string name="interest">ब्याज</string>
-    <string name="rent">किराया</string>
-    <string name="depreciation">मूल्यह्रास</string>
+    <string name="seed">बीज =</string>
+    <string name="irrigation">सिंचाई =</string>
+    <string name="insecticides">कीटनाशक =</string>
+    <string name="fertiliser">उर्वरक =</string>
+    <string name="interest">ब्याज =</string>
+    <string name="rent">किराया =</string>
+    <string name="depreciation">मूल्यह्रास=</string>
+    <string name="human">मानव श्रम=</string>
+    <string name="animal">पशु श्रम=</string>
 </resources>
