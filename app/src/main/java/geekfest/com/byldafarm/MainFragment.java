@@ -127,7 +127,6 @@ public class MainFragment extends Fragment {
             "MEERUT",
             "MEHSANA",
             "MIRZAPUR",
-            "MIXED CROPS",
             "MORADABAD",
             "MUZAFFARNAGAR",
             "NAGPUR",
