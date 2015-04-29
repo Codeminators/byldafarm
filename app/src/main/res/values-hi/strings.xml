@@ -12,7 +12,10 @@
     <string name="seed">बीज</string>
     <string name="irrigation">सिंचाई</string>
     <string name="insecticides">कीटनाशक</string>
+    <string name="fertiliser">उर्वरक</string>
     <string name="interest">ब्याज</string>
     <string name="rent">किराया</string>
     <string name="depreciation">मूल्यह्रास</string>
+    <string name="human">मानव श्रम</string>
+    <string name="animal">पशु श्रम</string>
 </resources>
