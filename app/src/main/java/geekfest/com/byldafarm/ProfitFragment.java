@@ -93,7 +93,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         TextView labor2 = (TextView) rootView.findViewById(R.id.aalabour2);
         TextView crop2 = (TextView) rootView.findViewById(R.id.crop2name);
 
-        if(arrayList.size() == 2) {
+        if(arrayList.size() >= 2) {
 
             crop2.setText(arrayList.get(1).cropName + "(Per Hectare)");
 
@@ -127,7 +127,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         TextView labor3 = (TextView) rootView.findViewById(R.id.aalabour3);
         TextView crop3 = (TextView) rootView.findViewById(R.id.crop3name);
 
-        if(arrayList.size() == 3) {
+        if(arrayList.size() >= 3) {
 
             crop3.setText(arrayList.get(2).cropName + "(Per Hectare)");
             if (mainResult.maxAreaCrop3 != 0.0) {
