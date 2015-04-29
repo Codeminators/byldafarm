@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created by prempal on 22/3/15.
@@ -252,6 +253,7 @@ public class MainFragment extends Fragment {
 
                                     i++;
                                 }
+
                                 FarmCalculationResult farmCalResult = AlgorithmTwoCrops.efficientFarm(farmBudget, farmArea, crop);
 
 //                            for( i = 0; i < crop.size(); i++){
@@ -277,6 +279,10 @@ public class MainFragment extends Fragment {
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                            } catch (StackOverflowError e) {
+                                e.printStackTrace();
+                                Toast.makeText(getActivity(), "Budget insufficient", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
                             }
                         }
                     }.execute(sqlInput);
