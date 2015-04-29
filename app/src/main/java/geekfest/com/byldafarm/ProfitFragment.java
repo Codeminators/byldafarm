@@ -74,11 +74,11 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         if(mainResult.maxAreaCrop1 != 0.0) {
             Log.d("raghav", ""+arrayList.get(0).maxArea);
 
-            seed1.setText("Seed cost price = Rs. " + arrayList.get(0).costPrice);
-            fert1.setText("Fertilizer price = Rs. " + arrayList.get(0).fertilizerCost);
-            irri1.setText("Irrigation price = Rs. " + arrayList.get(0).irrigationCost);
-            labour1.setText("labour price = Rs. " + arrayList.get(0).manualLabourCost);
-            animallabour1.setText("Animal labour price = Rs. " + arrayList.get(0).animalLabourCost);
+            seed1.setText("Seed cost price = \u20B9 " + arrayList.get(0).costPrice);
+            fert1.setText("Fertilizer price = \u20B9 " + arrayList.get(0).fertilizerCost);
+            irri1.setText("Irrigation price = \u20B9 " + arrayList.get(0).irrigationCost);
+            labour1.setText("labour price = \u20B9 " + arrayList.get(0).manualLabourCost);
+            animallabour1.setText("Animal labour price = \u20B9 " + arrayList.get(0).animalLabourCost);
         } else {
             crop1.setVisibility(View.GONE);
             seed1.setVisibility(View.GONE);
@@ -104,11 +104,11 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
             if (mainResult.maxAreaCrop2 != 0.0) {
                 Log.d("raghav", "" + arrayList.get(1).maxArea);
 
-                seed2.setText("Seed cost price(2) = Rs. " + arrayList.get(1).costPrice);
-                fert2.setText("Fertilizer price(2) = Rs. " + arrayList.get(1).fertilizerCost);
-                irri2.setText("Irrigation price(2) = Rs. " + arrayList.get(1).irrigationCost);
-                labour2.setText("labour price(2) = Rs. " + arrayList.get(1).manualLabourCost);
-                animallabour2.setText("Animal labour price = Rs. " + arrayList.get(1).animalLabourCost);
+                seed2.setText("Seed cost price(2) = \u20B9 " + arrayList.get(1).costPrice);
+                fert2.setText("Fertilizer price(2) = \u20B9 " + arrayList.get(1).fertilizerCost);
+                irri2.setText("Irrigation price(2) = \u20B9 " + arrayList.get(1).irrigationCost);
+                labour2.setText("labour price(2) = \u20B9 " + arrayList.get(1).manualLabourCost);
+                animallabour2.setText("Animal labour price = \u20B9 " + arrayList.get(1).animalLabourCost);
             } else {
                 crop2.setVisibility(View.GONE);
                 insec2.setVisibility(View.GONE);
@@ -141,11 +141,11 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
             if (mainResult.maxAreaCrop3 != 0.0) {
                 Log.d("raghav", "" + arrayList.get(2).maxArea);
 
-                seed3.setText("Seed cost price(3) = Rs. " + arrayList.get(2).costPrice);
-                fert3.setText("Fertilizer price(3) = Rs. " + arrayList.get(2).fertilizerCost);
-                irri3.setText("Irrigation price(3) = Rs. " + arrayList.get(2).irrigationCost);
-                labour3.setText("labour price(3) = Rs. " + arrayList.get(2).manualLabourCost);
-                animallabour3.setText("Animal labour price = Rs. " + arrayList.get(2).animalLabourCost);
+                seed3.setText("Seed cost price(3) = \u20B9 " + arrayList.get(2).costPrice);
+                fert3.setText("Fertilizer price(3) = \u20B9 " + arrayList.get(2).fertilizerCost);
+                irri3.setText("Irrigation price(3) = \u20B9 " + arrayList.get(2).irrigationCost);
+                labour3.setText("labour price(3) = \u20B9 " + arrayList.get(2).manualLabourCost);
+                animallabour3.setText("Animal labour price = \u20B9 " + arrayList.get(2).animalLabourCost);
             } else {
                 crop3.setVisibility(View.GONE);
                 insec3.setVisibility(View.GONE);

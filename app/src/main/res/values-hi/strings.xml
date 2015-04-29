@@ -5,7 +5,7 @@
     <string name="area">जगह</string>
     <string name="district">ज़िला</string>
     <string name="build">एक खेत का निर्माण</string>
-    <string name="budget">बजट</string>
+    <string name="budget">बजट(\u20B9)</string>
     <string name="submit">प्रस्तुत करना</string>
     <string name="seed">बीज</string>
     <string name="irrigation">सिंचाई</string>

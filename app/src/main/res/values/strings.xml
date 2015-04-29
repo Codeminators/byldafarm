@@ -11,7 +11,7 @@
     <string name="area">Area (in hectares)</string>
     <string name="district">District</string>
     <string name="build">Build a farm</string>
-    <string name="budget">Budget</string>
+    <string name="budget">Budget(\u20B9)</string>
     <string name="seed">Seeds</string>
     <string name="irrigation">Irrigation</string>
     <string name="insecticides">Insecticides</string>
