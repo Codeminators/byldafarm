@@ -56,14 +56,14 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         mChart.setUsePercentValues(true);
         mChart.setHoleColorTransparent(true);
 
-        mChart.setCenterText("Profit \n₹ " + String.format("%.2f",mainResult.totalProfit));
+        mChart.setCenterText(getResources().getString(R.string.profit) +" \u20B9 " +String.format("%.2f",mainResult.totalProfit));
         setData(3, 100);
         mChart.setCenterTextSizePixels(50);
         Log.d("Area", mainResult.areaUsed + "");
         TextView areaText = (TextView) rootView.findViewById(R.id.areaUsed);
         TextView totalCost = (TextView) rootView.findViewById(R.id.totalCost);
-        areaText.setText("Area used = " + String.format("%.2f",mainResult.areaUsed) + " hectares");
-        totalCost.setText("Total cost = ₹ " + String.format("%.2f",mainResult.totalCost));
+        areaText.setText(getResources().getString(R.string.area) + " " + String.format("%.2f",mainResult.areaUsed) + " hectares");
+        totalCost.setText(getResources().getString(R.string.cost) + " " + String.format("%.2f",mainResult.totalCost));
 
         if(mainResult.totalCost > farmBudget) {
             Toast.makeText(getActivity(), "The total cost is more than your budget", Toast.LENGTH_LONG)
@@ -86,15 +86,15 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         if(mainResult.maxAreaCrop1 != 0.0) {
             Log.d("raghav", ""+arrayList.get(0).maxArea);
 
-            seed1.setText("Seed cost price= \u20B9 " + arrayList.get(0).seedCost);
-            fert1.setText("Fertilizer cost = \u20B9 " + arrayList.get(0).fertilizerCost);
-            irri1.setText("Irrigation cost = \u20B9 " + arrayList.get(0).irrigationCost);
-            insec1.setText("Insecticides cost = \u20b9 " + arrayList.get(0).insecticides);
-            labour1.setText("Manual Labour cost = \u20B9 " + arrayList.get(0).manualLabourCost);
-            animallabour1.setText("Animal Labour cost = \u20B9 " + arrayList.get(0).animalLabourCost);
-            interest.setText("Total Interest = \u20B9 " + arrayList.get(0).totalInterest);
-            rent.setText("Total Rent = \u20B9 " + arrayList.get(0).totalRent);
-            depreciation.setText("Total Depreciation = \u20B9 " + arrayList.get(0).totalDepreciation );
+            seed1.setText(getResources().getString(R.string.seed) +" \u20B9 " + arrayList.get(0).seedCost);
+            fert1.setText(getResources().getString(R.string.fertiliser) +" \u20B9 " + arrayList.get(0).fertilizerCost);
+            irri1.setText(getResources().getString(R.string.irrigation) +" \u20B9 " + arrayList.get(0).irrigationCost);
+            insec1.setText(getResources().getString(R.string.insecticides) +" \u20B9 " + arrayList.get(0).insecticides);
+            labour1.setText(getResources().getString(R.string.human) +" \u20B9 "+ arrayList.get(0).manualLabourCost);
+            animallabour1.setText(getResources().getString(R.string.animal) +" \u20B9 " + arrayList.get(0).animalLabourCost);
+            interest.setText(getResources().getString(R.string.interest) +" \u20B9 " + arrayList.get(0).totalInterest);
+            rent.setText(getResources().getString(R.string.rent) +" \u20B9 " + arrayList.get(0).totalRent);
+            depreciation.setText(getResources().getString(R.string.depreciation) +" \u20B9 " + arrayList.get(0).totalDepreciation );
 
         } else {
 
@@ -124,18 +124,18 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
             if (mainResult.maxAreaCrop2 != 0.0) {
                 Log.d("raghav", "" + arrayList.get(1).maxArea);
 
-                seed2.setText("Seed cost price = \u20B9 " + arrayList.get(1).seedCost);
-                fert2.setText("Fertilizer price = \u20B9 " + arrayList.get(1).fertilizerCost);
-                irri2.setText("Irrigation price = \u20B9 " + arrayList.get(1).irrigationCost);
-                insec2.setText("Insecticides cost = \u20b9 " + arrayList.get(1).insecticides);
-                labour2.setText("Labour price = \u20B9 " + arrayList.get(1).manualLabourCost);
-                animallabour2.setText("Animal Labour cost = \u20B9 " + arrayList.get(1).animalLabourCost);
+                seed2.setText(getResources().getString(R.string.seed) +" \u20B9 " + arrayList.get(1).seedCost);
+                fert2.setText(getResources().getString(R.string.fertiliser) +" \u20B9 " + arrayList.get(1).fertilizerCost);
+                irri2.setText(getResources().getString(R.string.irrigation) +" \u20B9 " +arrayList.get(1).irrigationCost);
+                insec2.setText(getResources().getString(R.string.insecticides) +" \u20B9 " + arrayList.get(1).insecticides);
+                labour2.setText(getResources().getString(R.string.human) +" \u20B9 " +arrayList.get(1).manualLabourCost);
+                animallabour2.setText(getResources().getString(R.string.animal) +" \u20B9 " + arrayList.get(1).animalLabourCost);
                 int totalInterest = arrayList.get(0).totalInterest ;//+ arrayList.get(1).totalInterest;
                 int totalRent = arrayList.get(0).totalRent;// + arrayList.get(1).totalRent;
                 int totalDepreciation = arrayList.get(0).totalDepreciation ;//+ arrayList.get(1).totalDepreciation;
-                interest.setText("Total Interest = \u20B9 " + totalInterest);
-                rent.setText("Total Rent = \u20B9 " + totalRent);
-                depreciation.setText("Total Depreciation = \u20B9 " + totalDepreciation);
+                interest.setText(getResources().getString(R.string.interest) +" \u20B9 " + totalInterest);
+                rent.setText(getResources().getString(R.string.rent) +" \u20B9 " + totalRent);
+                depreciation.setText(getResources().getString(R.string.depreciation) +" \u20B9 " + totalDepreciation);
 
             } else {
                 crop2.setVisibility(View.GONE);
@@ -169,18 +169,18 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
             if (mainResult.maxAreaCrop3 != 0.0) {
                 Log.d("raghav", "" + arrayList.get(2).maxArea);
 
-                seed3.setText("Seed cost price= \u20B9 " + arrayList.get(2).seedCost);
-                fert3.setText("Fertilizer cost = \u20B9 " + arrayList.get(2).fertilizerCost);
-                insec3.setText("Insecticides cost = \u20b9 " + arrayList.get(2).insecticides);
-                irri3.setText("Irrigation cost = \u20B9 " + arrayList.get(2).irrigationCost);
-                labour3.setText("Manual Labour cost = \u20B9 " + arrayList.get(2).manualLabourCost);
-                animallabour3.setText("Animal Labour cost = \u20B9 " + arrayList.get(2).animalLabourCost);
+                seed3.setText(getResources().getString(R.string.seed) +" \u20B9 " +arrayList.get(2).seedCost);
+                fert3.setText(getResources().getString(R.string.fertiliser) +" \u20B9 " +arrayList.get(2).fertilizerCost);
+                insec3.setText(getResources().getString(R.string.insecticides) +" \u20B9 " + arrayList.get(2).insecticides);
+                irri3.setText(getResources().getString(R.string.irrigation) +" \u20B9 " + arrayList.get(2).irrigationCost);
+                labour3.setText(getResources().getString(R.string.human) +" \u20B9 " +arrayList.get(2).manualLabourCost);
+                animallabour3.setText(getResources().getString(R.string.animal) +" \u20B9 " +arrayList.get(2).animalLabourCost);
                 int totalInterest = arrayList.get(0).totalInterest;// + arrayList.get(1).totalInterest + arrayList.get(2).totalInterest;
                 int totalRent = arrayList.get(0).totalRent ;//+ arrayList.get(1).totalRent + arrayList.get(2).totalRent;
                 int totalDepreciation = arrayList.get(0).totalDepreciation;// + arrayList.get(1).totalDepreciation + arrayList.get(2).totalDepreciation;
-                interest.setText("Total Interest = \u20B9 " + totalInterest);
-                rent.setText("Total Rent = \u20B9 " +totalRent);
-                depreciation.setText("Total Depreciation = \u20B9 " +totalDepreciation);
+                interest.setText(getResources().getString(R.string.interest) +" \u20B9 " + totalInterest);
+                rent.setText(getResources().getString(R.string.rent) +" \u20B9 " +totalRent);
+                depreciation.setText(getResources().getString(R.string.depreciation) +" \u20B9 " +totalDepreciation);
             } else {
                 crop3.setVisibility(View.GONE);
                 insec3.setVisibility(View.GONE);

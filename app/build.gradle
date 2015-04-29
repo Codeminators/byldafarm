@@ -6,14 +6,18 @@ android {
 
     defaultConfig {
         applicationId "geekfest.com.byldafarm"
-        minSdkVersion 14
+        minSdkVersion 10
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
