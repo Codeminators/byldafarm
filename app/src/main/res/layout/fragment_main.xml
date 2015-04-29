@@ -36,9 +36,9 @@
             android:layout_height="wrap_content"
             android:hint="Location"
             android:textAlignment="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@+id/farm_area"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="30dp"
             android:layout_alignLeft="@+id/farm_area"
             android:layout_alignStart="@+id/farm_area"
             android:layout_alignRight="@+id/farm_area"
@@ -52,7 +52,8 @@
             android:textAlignment="center"
             android:inputType="phone"
             android:digits="0123456789"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_below="@+id/farm_location" />
 
         <Button
@@ -72,7 +73,7 @@
         android:layout_below="@+id/submit"
         android:layout_centerHorizontal="true"
         android:background="@drawable/bbuton_primary_rounded"
-        android:layout_margin="20dp"
+        android:layout_margin="30dp"
         android:text="Build a Farm"
         android:id="@+id/build_a_farm"
         />
