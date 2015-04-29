@@ -61,7 +61,7 @@ public class AlgorithmTwoCrops {
             }
         }
         if(farmCalculationResult.totalProfit == 0.0){
-            return efficientFarm(budget, area * 99.0/100.0, crop);
+            return efficientFarm(budget, area * 0.99d, crop);
         }
         return farmCalculationResult;
     }

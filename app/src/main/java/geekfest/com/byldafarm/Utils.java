@@ -70,6 +70,8 @@ public class Utils {
         String text = editText.getText().toString();
         if (text.matches("")) {
             return true;
+        } else if (Float.valueOf(text) == 0) {
+            return true;
         }
         return false;
     }
