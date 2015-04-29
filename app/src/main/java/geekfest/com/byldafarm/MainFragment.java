@@ -18,6 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Created by prempal on 22/3/15.
@@ -252,6 +253,7 @@ public class MainFragment extends Fragment {
 
                                     i++;
                                 }
+
                                 FarmCalculationResult farmCalResult = AlgorithmTwoCrops.efficientFarm(farmBudget, farmArea, crop);
 
 //                            for( i = 0; i < crop.size(); i++){
@@ -277,6 +279,10 @@ public class MainFragment extends Fragment {
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                            } catch (StackOverflowError e) {
+                                e.printStackTrace();
+                                Toast.makeText(getActivity(), "Budget insufficient", Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
                             }
                         }
                     }.execute(sqlInput);
@@ -353,11 +359,15 @@ public class MainFragment extends Fragment {
 
     private boolean validate() {
         if (Utils.isEditTextEmpty(farmAreaEdTxt)) {
-            farmAreaEdTxt.setError("Required");
+            farmAreaEdTxt.setError("Required non 0 value");
             return false;
         }
         if (Utils.isEditTextEmpty(farmBudgetEdTxt)) {
-            farmBudgetEdTxt.setError("Required");
+            farmBudgetEdTxt.setError("Required non 0 value");
+            return false;
+        }
+        if ((Float.valueOf(farmBudgetEdTxt.getText().toString()) < (Float.valueOf(farmAreaEdTxt.getText().toString())*100))) {
+            farmBudgetEdTxt.setError("Budget too less for given land");
             return false;
         }
         return true;
