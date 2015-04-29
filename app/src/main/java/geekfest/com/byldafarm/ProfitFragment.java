@@ -60,36 +60,91 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         TextView totalCost = (TextView) rootView.findViewById(R.id.totalCost);
         areaText.setText("Area used = " + mainResult.areaUsed + " hectares");
         totalCost.setText("Total cost = " + String.format("%.2f",mainResult.totalCost));
+
         TextView seed1 = (TextView) rootView.findViewById(R.id.aacostofseeds1);
         TextView fert1 = (TextView) rootView.findViewById(R.id.aafertilizer1);
         TextView irri1 = (TextView) rootView.findViewById(R.id.aairrigation1);
         TextView labor1 = (TextView) rootView.findViewById(R.id.aalabour1);
         TextView crop1 = (TextView) rootView.findViewById(R.id.crop1name);
-        crop1.setText(arrayList.get(0).cropName);
-        seed1.setText("Seed cost price(1) = Rs. " + arrayList.get(0).costPrice);
-        fert1.setText("Fertilizer price(1) = Rs. " + arrayList.get(0).fertilizerCost);
-        irri1.setText("Irrigation price(1) = Rs. " + arrayList.get(0).irrigationCost);
-        labor1.setText("Labor price(1) = Rs. " + arrayList.get(0).labourCost);
+
+        crop1.setText(arrayList.get(0).cropName + "(Per Hectare)");
+
+        if(mainResult.maxAreaCrop1 != 0.0) {
+            Log.d("raghav", ""+arrayList.get(0).maxArea);
+
+            seed1.setText("Seed cost price(1) = Rs. " + arrayList.get(0).costPrice);
+            fert1.setText("Fertilizer price(1) = Rs. " + arrayList.get(0).fertilizerCost);
+            irri1.setText("Irrigation price(1) = Rs. " + arrayList.get(0).irrigationCost);
+            labor1.setText("Labor price(1) = Rs. " + arrayList.get(0).labourCost);
+        } else {
+            crop1.setVisibility(View.GONE);
+            seed1.setVisibility(View.GONE);
+            fert1.setVisibility(View.GONE);
+            irri1.setVisibility(View.GONE);
+            labor1.setVisibility(View.GONE);
+        }
+
         TextView seed2 = (TextView) rootView.findViewById(R.id.aacostofseeds2);
         TextView fert2 = (TextView) rootView.findViewById(R.id.aafertilizer2);
         TextView irri2 = (TextView) rootView.findViewById(R.id.aairrigation2);
         TextView labor2 = (TextView) rootView.findViewById(R.id.aalabour2);
         TextView crop2 = (TextView) rootView.findViewById(R.id.crop2name);
-        crop2.setText(arrayList.get(1).cropName);
-        seed2.setText("Seed cost price(2) = Rs. " + arrayList.get(1).costPrice);
-        fert2.setText("Fertilizer price(2) = Rs. " + arrayList.get(1).fertilizerCost);
-        irri2.setText("Irrigation price(2) = Rs. " + arrayList.get(1).irrigationCost);
-        labor2.setText("Labor price(2) = Rs. " + arrayList.get(1).labourCost);
+
+        if(arrayList.size() == 2) {
+
+            crop2.setText(arrayList.get(1).cropName + "(Per Hectare)");
+
+            if (mainResult.maxAreaCrop2 != 0.0) {
+                Log.d("raghav", "" + arrayList.get(1).maxArea);
+
+                seed2.setText("Seed cost price(2) = Rs. " + arrayList.get(1).costPrice);
+                fert2.setText("Fertilizer price(2) = Rs. " + arrayList.get(1).fertilizerCost);
+                irri2.setText("Irrigation price(2) = Rs. " + arrayList.get(1).irrigationCost);
+                labor2.setText("Labor price(2) = Rs. " + arrayList.get(1).labourCost);
+            } else {
+                crop2.setVisibility(View.GONE);
+                seed2.setVisibility(View.GONE);
+                fert2.setVisibility(View.GONE);
+                irri2.setVisibility(View.GONE);
+                labor2.setVisibility(View.GONE);
+            }
+        } else {
+            crop2.setVisibility(View.GONE);
+            seed2.setVisibility(View.GONE);
+            fert2.setVisibility(View.GONE);
+            irri2.setVisibility(View.GONE);
+            labor2.setVisibility(View.GONE);
+        }
         TextView seed3 = (TextView) rootView.findViewById(R.id.aacostofseeds3);
         TextView fert3 = (TextView) rootView.findViewById(R.id.aafertilizer3);
         TextView irri3 = (TextView) rootView.findViewById(R.id.aairrigation3);
         TextView labor3 = (TextView) rootView.findViewById(R.id.aalabour3);
         TextView crop3 = (TextView) rootView.findViewById(R.id.crop3name);
-        crop3.setText(arrayList.get(2).cropName);
-        seed3.setText("Seed cost price(3) = Rs. " + arrayList.get(2).costPrice);
-        fert3.setText("Fertilizer price(3) = Rs. " + arrayList.get(2).fertilizerCost);
-        irri3.setText("Irrigation price(3) = Rs. " + arrayList.get(2).irrigationCost);
-        labor3.setText("Labor price(3) = Rs. " + arrayList.get(2).labourCost);
+
+        if(arrayList.size() == 3) {
+
+            crop3.setText(arrayList.get(2).cropName + "(Per Hectare)");
+            if (mainResult.maxAreaCrop3 != 0.0) {
+                Log.d("raghav", "" + arrayList.get(2).maxArea);
+
+                seed3.setText("Seed cost price(3) = Rs. " + arrayList.get(2).costPrice);
+                fert3.setText("Fertilizer price(3) = Rs. " + arrayList.get(2).fertilizerCost);
+                irri3.setText("Irrigation price(3) = Rs. " + arrayList.get(2).irrigationCost);
+                labor3.setText("Labor price(3) = Rs. " + arrayList.get(2).labourCost);
+            } else {
+                crop3.setVisibility(View.GONE);
+                seed3.setVisibility(View.GONE);
+                fert3.setVisibility(View.GONE);
+                irri3.setVisibility(View.GONE);
+                labor3.setVisibility(View.GONE);
+            }
+        } else {
+            crop3.setVisibility(View.GONE);
+            seed3.setVisibility(View.GONE);
+            fert3.setVisibility(View.GONE);
+            irri3.setVisibility(View.GONE);
+            labor3.setVisibility(View.GONE);
+        }
         return rootView;
     }
 

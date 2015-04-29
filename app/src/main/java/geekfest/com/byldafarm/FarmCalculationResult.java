@@ -6,8 +6,8 @@ package geekfest.com.byldafarm;
 public class FarmCalculationResult {
     double totalProfit;
     double totalCost;
-    double maxAreaCrop1;
-    double maxAreaCrop2;
-    double maxAreaCrop3;
+    double maxAreaCrop1 = 0.0;
+    double maxAreaCrop2 = 0.0;
+    double maxAreaCrop3 = 0.0;
     double areaUsed;
 }
