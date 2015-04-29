@@ -360,6 +360,10 @@ public class MainFragment extends Fragment {
             farmBudgetEdTxt.setError("Required");
             return false;
         }
+        if ((Float.valueOf(farmBudgetEdTxt.getText().toString()) < (Float.valueOf(farmAreaEdTxt.getText().toString())*2500))) {
+            farmBudgetEdTxt.setError("Budget too less for given land");
+            return false;
+        }
         return true;
     }
 
