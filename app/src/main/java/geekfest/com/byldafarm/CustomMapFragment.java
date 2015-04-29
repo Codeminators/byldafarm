@@ -35,15 +35,17 @@ public class CustomMapFragment extends Fragment {
     private RadioGroup radioGroup;
     private TextView areaText;
     private Calendar calendar;
+    int budget;
     private Adapter gridAdapter;
 
     public CustomMapFragment() {
 
     }
 
-    public CustomMapFragment(ArrayList<Crop> crop, String farmArea) {
+    public CustomMapFragment(ArrayList<Crop> crop, String farmArea, int budget) {
         crops = crop;
         area = farmArea;
+        budget = budget;
     }
 
     @Override
@@ -200,7 +202,7 @@ public class CustomMapFragment extends Fragment {
                     farmCalculationResult.totalProfit = profit;
                     farmCalculationResult.totalCost = cost;
                     getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container_custom_map, new ProfitFragment(crops, farmCalculationResult))
+                            .replace(R.id.container_custom_map, new ProfitFragment(crops, farmCalculationResult,budget))
                             .commit();
                 }
             }
