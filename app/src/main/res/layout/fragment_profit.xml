@@ -29,7 +29,8 @@
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds1" android:layout_gravity="center_horizontal" android:padding="10dp"/>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour1" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of manual labour = " android:id="@+id/aalabour1" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of animal labour = " android:id="@+id/aaanimallabour1" android:padding="10dp" android:layout_gravity="center_horizontal" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer1" android:padding="10dp" android:layout_gravity="center_horizontal" />
 
@@ -41,7 +42,8 @@
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds2" android:layout_gravity="center_horizontal" android:padding="10dp"/>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour2" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of manual labour = " android:id="@+id/aalabour2" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of animal labour = " android:id="@+id/aaanimallabour2" android:padding="10dp" android:layout_gravity="center_horizontal" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer2" android:padding="10dp" android:layout_gravity="center_horizontal" />
 
@@ -53,7 +55,8 @@
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of irrigation = " android:id="@+id/aacostofseeds3" android:layout_gravity="center_horizontal" android:padding="10dp"/>
 
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of labour = " android:id="@+id/aalabour3" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of manual labour = " android:id="@+id/aalabour3" android:padding="10dp" android:layout_gravity="center_horizontal" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total price of animal labour = " android:id="@+id/aaanimallabour3" android:padding="10dp" android:layout_gravity="center_horizontal" />
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:text="Total profit = " android:id="@+id/aafertilizer3" android:padding="10dp" android:layout_gravity="center_horizontal" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="Additional Costs" android:id="@+id/AdditionalCosts" android:layout_gravity="left" android:padding="10dp"/>

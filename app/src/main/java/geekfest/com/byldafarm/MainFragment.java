@@ -239,7 +239,8 @@ public class MainFragment extends Fragment {
                                     crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
                                     crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
                                     crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
-                                    crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                    crop.get(i).manualLabourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                    crop.get(i).animalLabourCost = jsonArray.getJSONObject(i).getInt("AnimalLabour");
                                     crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
                                     crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
                                     i++;
@@ -309,7 +310,7 @@ public class MainFragment extends Fragment {
                                     crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
                                     crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
                                     crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
-                                    crop.get(i).labourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
+                                    crop.get(i).manualLabourCost = jsonArray.getJSONObject(i).getInt("LabourCost");
                                     crop.get(i).sellingPrice = jsonArray.getJSONObject(i).getInt("SellingPrice");
                                     crop.get(i).costPrice = jsonArray.getJSONObject(i).getInt("CostPrice");
                                     i++;
