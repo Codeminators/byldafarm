@@ -11,9 +11,10 @@ public class Crop implements Serializable{
     int seedCost;
     int fertilizerCost;
     int irrigationCost;
-    int labourCost;
+    int manualLabourCost;
     int costPrice;
     int sellingPrice;
+    int animalLabourCost;
     float maxArea;
 
 
