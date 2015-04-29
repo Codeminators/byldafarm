@@ -167,12 +167,13 @@ public class CustomMapFragment extends Fragment {
                             case 2:
                                 crop3++;
                                 break;
+                            default:
+                                break;
                         }
                         sum++;
                     }
                 }
 
-                if (sum == gridView.getChildCount()) {
                     Log.d("Crop Value", crop1 + " " + crop2 + " " + crop3);
 //                    Intent intent = new Intent(getApplicationContext(), CustomProfitActivity.class);
 //                    intent.putExtra("crop1", crop1);
@@ -198,14 +199,14 @@ public class CustomMapFragment extends Fragment {
                             cost = cost + (crops.get(i).costPrice * (crop1 / 25 * Area));
                         }
                     }
-                    farmCalculationResult.areaUsed = Area;
+                    farmCalculationResult.areaUsed = sum / 25 *Area;
                     farmCalculationResult.totalProfit = profit;
                     farmCalculationResult.totalCost = cost;
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container_custom_map, new ProfitFragment(crops, farmCalculationResult,budget))
                             .commit();
                 }
-            }
+
 
         });
         return rootView;
