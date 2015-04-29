@@ -29,7 +29,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
     protected ArrayList<String> mParties = new ArrayList<>();
     FarmCalculationResult mainResult;
     private PieChart mChart;
-    int budget;
+    int farmBudget;
     private ArrayList<Crop> arrayList;
 
     public ProfitFragment() {
@@ -39,7 +39,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
     public ProfitFragment(ArrayList<Crop> crop, FarmCalculationResult farmCalculationResult, int budget) {
         arrayList = crop;
         mainResult = farmCalculationResult;
-        budget = budget;
+        farmBudget = budget;
 
     }
 
@@ -64,7 +64,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         areaText.setText("Area used = " + String.format("%.2f",mainResult.areaUsed) + " hectares");
         totalCost.setText("Total cost = ₹ " + String.format("%.2f",mainResult.totalCost));
 
-        if(mainResult.totalCost > budget) {
+        if(mainResult.totalCost > farmBudget) {
             Toast.makeText(getActivity(), "The total cost is more than your budget", Toast.LENGTH_LONG)
                     .show();
         }
