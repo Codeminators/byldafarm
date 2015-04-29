@@ -359,14 +359,14 @@ public class MainFragment extends Fragment {
 
     private boolean validate() {
         if (Utils.isEditTextEmpty(farmAreaEdTxt)) {
-            farmAreaEdTxt.setError("Required");
+            farmAreaEdTxt.setError("Required non 0 value");
             return false;
         }
         if (Utils.isEditTextEmpty(farmBudgetEdTxt)) {
-            farmBudgetEdTxt.setError("Required");
+            farmBudgetEdTxt.setError("Required non 0 value");
             return false;
         }
-        if ((Float.valueOf(farmBudgetEdTxt.getText().toString()) < (Float.valueOf(farmAreaEdTxt.getText().toString())*2500))) {
+        if ((Float.valueOf(farmBudgetEdTxt.getText().toString()) < (Float.valueOf(farmAreaEdTxt.getText().toString())*100))) {
             farmBudgetEdTxt.setError("Budget too less for given land");
             return false;
         }
