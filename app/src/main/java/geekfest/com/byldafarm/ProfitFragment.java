@@ -63,6 +63,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
 
         TextView seed1 = (TextView) rootView.findViewById(R.id.aacostofseeds1);
         TextView fert1 = (TextView) rootView.findViewById(R.id.aafertilizer1);
+        TextView insec1 = (TextView) rootView.findViewById(R.id.insecticide1);
         TextView irri1 = (TextView) rootView.findViewById(R.id.aairrigation1);
         TextView labor1 = (TextView) rootView.findViewById(R.id.aalabour1);
         TextView crop1 = (TextView) rootView.findViewById(R.id.crop1name);
@@ -79,6 +80,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         } else {
             crop1.setVisibility(View.GONE);
             seed1.setVisibility(View.GONE);
+            insec1.setVisibility(View.GONE);
             fert1.setVisibility(View.GONE);
             irri1.setVisibility(View.GONE);
             labor1.setVisibility(View.GONE);
@@ -86,6 +88,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
 
         TextView seed2 = (TextView) rootView.findViewById(R.id.aacostofseeds2);
         TextView fert2 = (TextView) rootView.findViewById(R.id.aafertilizer2);
+        TextView insec2 = (TextView) rootView.findViewById(R.id.insecticide2);
         TextView irri2 = (TextView) rootView.findViewById(R.id.aairrigation2);
         TextView labor2 = (TextView) rootView.findViewById(R.id.aalabour2);
         TextView crop2 = (TextView) rootView.findViewById(R.id.crop2name);
@@ -103,12 +106,14 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
                 labor2.setText("Labor price(2) = Rs. " + arrayList.get(1).labourCost);
             } else {
                 crop2.setVisibility(View.GONE);
+                insec2.setVisibility(View.GONE);
                 seed2.setVisibility(View.GONE);
                 fert2.setVisibility(View.GONE);
                 irri2.setVisibility(View.GONE);
                 labor2.setVisibility(View.GONE);
             }
         } else {
+            insec2.setVisibility(View.GONE);
             crop2.setVisibility(View.GONE);
             seed2.setVisibility(View.GONE);
             fert2.setVisibility(View.GONE);
@@ -117,6 +122,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         }
         TextView seed3 = (TextView) rootView.findViewById(R.id.aacostofseeds3);
         TextView fert3 = (TextView) rootView.findViewById(R.id.aafertilizer3);
+        TextView insec3 = (TextView) rootView.findViewById(R.id.insecticide3);
         TextView irri3 = (TextView) rootView.findViewById(R.id.aairrigation3);
         TextView labor3 = (TextView) rootView.findViewById(R.id.aalabour3);
         TextView crop3 = (TextView) rootView.findViewById(R.id.crop3name);
@@ -133,6 +139,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
                 labor3.setText("Labor price(3) = Rs. " + arrayList.get(2).labourCost);
             } else {
                 crop3.setVisibility(View.GONE);
+                insec3.setVisibility(View.GONE);
                 seed3.setVisibility(View.GONE);
                 fert3.setVisibility(View.GONE);
                 irri3.setVisibility(View.GONE);
@@ -140,11 +147,16 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
             }
         } else {
             crop3.setVisibility(View.GONE);
+            insec3.setVisibility(View.GONE);
             seed3.setVisibility(View.GONE);
             fert3.setVisibility(View.GONE);
             irri3.setVisibility(View.GONE);
             labor3.setVisibility(View.GONE);
         }
+
+        TextView interest = (TextView) rootView.findViewById(R.id.interest);
+        TextView rent = (TextView) rootView.findViewById(R.id.rent);
+        TextView depreciation = (TextView) rootView.findViewById(R.id.depreciation);
         return rootView;
     }
 

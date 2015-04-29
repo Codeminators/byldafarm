@@ -196,6 +196,7 @@ public class CustomMapFragment extends Fragment {
                             cost = cost + (crops.get(i).costPrice * (crop1 / 25 * Area));
                         }
                     }
+                    farmCalculationResult.areaUsed = Area;
                     farmCalculationResult.totalProfit = profit;
                     farmCalculationResult.totalCost = cost;
                     getActivity().getSupportFragmentManager().beginTransaction()
