@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -50,8 +51,9 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_profit, container, false);
 
-
         mChart = (PieChart) rootView.findViewById(R.id.chart);
+        mChart.setDescription("Mixed cropping distribution");
+        mChart.setDescriptionTextSize(24);
         mChart.setUsePercentValues(true);
         mChart.setHoleColorTransparent(true);
 
