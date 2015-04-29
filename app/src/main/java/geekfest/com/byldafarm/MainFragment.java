@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +26,8 @@ public class MainFragment extends Fragment {
     String stringToPassInSQL = "", location = "";
     float maxProfit;
     private Button submitButton, buildFarmButton;
-    private EditText farmAreaEdTxt, farmLocationEdTxt, farmBudgetEdTxt;
+    private EditText farmAreaEdTxt,farmBudgetEdTxt;
+    private Spinner farmLocation;
     private ProgressBar progressBar;
 
     public MainFragment() {
@@ -37,7 +40,9 @@ public class MainFragment extends Fragment {
         submitButton = (Button) rootView.findViewById(R.id.submit);
         farmAreaEdTxt = (EditText) rootView.findViewById(R.id.farm_area);
         farmBudgetEdTxt = (EditText) rootView.findViewById(R.id.farm_budget);
-        farmLocationEdTxt = (EditText) rootView.findViewById(R.id.farm_location);
+        farmLocation = (Spinner) rootView.findViewById(R.id.farm_location);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, new String[]{"Agra","agra"});
+        farmLocation.setAdapter(dataAdapter);
         buildFarmButton = (Button) rootView.findViewById(R.id.build_a_farm);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
 
@@ -58,7 +63,7 @@ public class MainFragment extends Fragment {
 
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
                     final double farmArea = Double.parseDouble(farmAreaEdTxt.getText().toString());
-                    location = farmLocationEdTxt.getText().toString();
+                    location = farmLocation.getSelectedItem().toString();
                     final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
 
                     Log.d("Raghav", sqlInput);
@@ -128,7 +133,7 @@ public class MainFragment extends Fragment {
                 if (validate()) {
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
                     final int farmArea = Integer.parseInt(farmAreaEdTxt.getText().toString());
-                    location = farmLocationEdTxt.getText().toString();
+                    location = farmLocation.getSelectedItem().toString();
                     final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
 
                     Log.d("Raghav", sqlInput);
@@ -180,10 +185,6 @@ public class MainFragment extends Fragment {
     private boolean validate() {
         if (Utils.isEditTextEmpty(farmAreaEdTxt)) {
             farmAreaEdTxt.setError("Required");
-            return false;
-        }
-        if (Utils.isEditTextEmpty(farmLocationEdTxt)) {
-            farmLocationEdTxt.setError("Required");
             return false;
         }
         if (Utils.isEditTextEmpty(farmBudgetEdTxt)) {

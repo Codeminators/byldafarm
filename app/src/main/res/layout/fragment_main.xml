@@ -30,7 +30,7 @@
             android:layout_alignRight="@+id/farm_budget"
             android:layout_alignEnd="@+id/farm_budget" />
 
-        <EditText
+        <Spinner
             android:id="@+id/farm_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
