@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">एक खेत का निर्माण</string>
+    <string name="area">जगह</string>
+    <string name="district">ज़िला</string>
+    <string name="build">एक खेत का निर्माण</string>
+    <string name="budget">बजट</string>
+    <string name="submit">प्रस्तुत करना</string>
+    <string name="seed">बीज</string>
+    <string name="irrigation">सिंचाई</string>
+    <string name="insecticides"></string>
+</resources>
