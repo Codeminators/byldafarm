@@ -68,6 +68,7 @@ public class ProfitFragment extends android.support.v4.app.Fragment {
         if(mainResult.totalCost > farmBudget) {
             Toast.makeText(getActivity(), "The total cost is more than your budget", Toast.LENGTH_LONG)
                     .show();
+            Log.d("Raghav", ""+ farmBudget);
         }
 
         TextView seed1 = (TextView) rootView.findViewById(R.id.aacostofseeds1);
