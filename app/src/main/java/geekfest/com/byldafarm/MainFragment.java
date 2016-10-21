@@ -1,3 +1,12 @@
+/**
+* @Author: ananayarora
+* @Date:   2016-10-21T22:12:45+05:30
+* @Last modified by:   ananayarora
+* @Last modified time: 2016-10-21T22:15:18+05:30
+*/
+
+
+
 package geekfest.com.byldafarm;
 
 import android.content.Intent;
@@ -218,7 +227,7 @@ public class MainFragment extends Fragment {
                     final int farmBudget = Integer.parseInt(farmBudgetEdTxt.getText().toString());
                     final double farmArea = Double.parseDouble(farmAreaEdTxt.getText().toString());
                     location = farmLocation.getSelectedItem().toString();
-                    final String sqlInput = "SELECT * FROM `nigga` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
+                    final String sqlInput = "SELECT * FROM `farm` WHERE District LIKE " + "\'" + location + "\'" + " AND Season IN (" + stringToPassInSQL;
 
                     Log.d("Raghav", sqlInput);
                     new QueryTask() {

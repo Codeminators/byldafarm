@@ -1,3 +1,12 @@
+/**
+* @Author: ananayarora
+* @Date:   2016-10-21T22:12:45+05:30
+* @Last modified by:   ananayarora
+* @Last modified time: 2016-10-21T22:15:29+05:30
+*/
+
+
+
 package geekfest.com.byldafarm;
 
 import android.os.AsyncTask;
@@ -25,7 +34,7 @@ public class QueryTask extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         String response = null;
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://ananayarora.com/byldafarm/end.php");
+        HttpPost httppost = new HttpPost("https://ananayarora.com/byldafarm/end.php");
         try {
 
             List<NameValuePair> nameValuePairs = new ArrayList<>();
