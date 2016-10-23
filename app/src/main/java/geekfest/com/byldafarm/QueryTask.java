@@ -25,7 +25,7 @@ public class QueryTask extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... strings) {
         String response = null;
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://ananayarora.com/byldafarm/end.php");
+        HttpPost httppost = new HttpPost("https://ananayarora.com/byldafarm/end.php");
         try {
 
             List<NameValuePair> nameValuePairs = new ArrayList<>();
